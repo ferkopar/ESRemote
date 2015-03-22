@@ -1,0 +1,47 @@
+--------------------------------------------------------
+--  DDL for Table DM_ROLE_RIGHT
+--------------------------------------------------------
+
+  CREATE TABLE "DM_ROLE_RIGHT" 
+   (	"ROLE_RIGHT_ID" NUMBER(12,0), 
+	"ROLE_ID" NUMBER(12,0), 
+	"APEX_PAGE" NUMBER(*,0), 
+	"APEX_VARIABLE" VARCHAR2(255 CHAR), 
+	"TCRITERION" VARCHAR2(4000 BYTE), 
+	"FROM_DATE" DATE, 
+	"TO_DATE" DATE, 
+	"DESCRIPTION" VARCHAR2(255 BYTE), 
+	"CRU" VARCHAR2(30 BYTE), 
+	"CRD" TIMESTAMP (6) DEFAULT SYSDATE, 
+	"MDU" VARCHAR2(30 BYTE), 
+	"MDD" TIMESTAMP (6)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+ 
+
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."ROLE_RIGHT_ID" IS 'Tábla egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."ROLE_ID" IS 'A kapcsolodó szabály egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."APEX_PAGE" IS 'Apex oldal';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."APEX_VARIABLE" IS 'APEX változó értékének visszaadása';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."TCRITERION" IS 'Kritérium, szabály leírása';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."FROM_DATE" IS 'Érvényesség kezdő időpontja';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."TO_DATE" IS 'Érvényesség vége';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."CRU" IS 'Rekord Létrehozójának Azonosítója';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."CRD" IS 'Rekord Létrehozásának időpecsétje';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."MDU" IS 'Rekord Módosítójának Azonosítója';
+ 
+   COMMENT ON COLUMN "DM_ROLE_RIGHT"."MDD" IS 'Rekord Módosításának Időpecsétje';
+ 
+   COMMENT ON TABLE "DM_ROLE_RIGHT"  IS 'Szabály szerepkörök táblája';

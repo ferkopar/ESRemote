@@ -1,0 +1,65 @@
+--------------------------------------------------------
+--  DDL for Table INVENT_PARAM
+--------------------------------------------------------
+
+  CREATE TABLE "INVENT_PARAM" 
+   (	"INVENT_PARAM_ID" NUMBER(12,0), 
+	"INVENT_ID" NUMBER(12,0), 
+	"PARAM_TYPE_ID" NUMBER(12,0), 
+	"VALUE" VARCHAR2(255 BYTE), 
+	"UNIT" VARCHAR2(50 BYTE), 
+	"DESCRIPTION" VARCHAR2(255 BYTE), 
+	"STATUS_ID" NUMBER(12,0) DEFAULT 912, 
+	"CRU" VARCHAR2(30 BYTE), 
+	"CRD" TIMESTAMP (6), 
+	"MDU" VARCHAR2(30 BYTE), 
+	"MDD" TIMESTAMP (6), 
+	"W_PARAM_TYPE" VARCHAR2(255 BYTE), 
+	"EPI_ID" NUMBER(12,0), 
+	"SUBJ1_ID" NUMBER(12,0), 
+	"SUBJ2_ID" NUMBER(12,0), 
+	"MM_ID" NUMBER(12,0), 
+	"ORDER_NO" NUMBER(4,0), 
+	"VALUE_TYPE_ID" NUMBER(12,0), 
+	"UNIT_TYPE_ID" NUMBER(12,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+ 
+
+   COMMENT ON COLUMN "INVENT_PARAM"."INVENT_PARAM_ID" IS 'Tábla egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."INVENT_ID" IS 'Anyag eszköz leltár készltet egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."PARAM_TYPE_ID" IS 'Paraméter típusának azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."VALUE" IS 'Érték';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."UNIT" IS 'Készlet Mértékegysége';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."DESCRIPTION" IS 'Leírás';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."STATUS_ID" IS 'Az adat státuszának, feldolgozottságának egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."CRU" IS 'Rekord Létrehozójának Azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."CRD" IS 'Rekord Létrehozásának időpecsétje';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."MDU" IS 'Rekord Módosítójának Azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."MDD" IS 'Rekord Módosításának Időpecsétje';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."W_PARAM_TYPE" IS 'Paraméter típusa';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."EPI_ID" IS 'Kapcsolódó esemény egyedi azonosítója';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."SUBJ1_ID" IS 'Az átadó';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."SUBJ2_ID" IS 'Az átvevő';
+ 
+   COMMENT ON COLUMN "INVENT_PARAM"."MM_ID" IS 'Kapcsolódó dokumentum egyedi azonosítója';
+ 
+   COMMENT ON TABLE "INVENT_PARAM"  IS 'Leltár készlet paraméterei
+Code:EINP';
