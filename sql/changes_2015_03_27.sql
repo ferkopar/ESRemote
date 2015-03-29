@@ -84,3 +84,25 @@ ALTER TABLE OBH_TEST.DM_SUBJECT
 ALTER TABLE OBH_TEST.DM_SUBJECT
   ADD DIMENSION_GROUP NUMBER(12, 0);
 
+--
+-- Rename column "DIMENSION_GROUP" to "DIMENSION_GROUP_ID" on table "OBH_TEST.DM_SUBJECT"
+--
+ALTER TABLE OBH_TEST.DM_SUBJECT
+  RENAME COLUMN DIMENSION_GROUP TO DIMENSION_GROUP_ID;
+
+--
+-- Alter function "OBH_TEST.SEARCH_GROUND_LEVEL_ID"
+--
+CREATE OR REPLACE FUNCTION OBH_TEST.SEARCH_GROUND_LEVEL_ID (p_super_type_id NUMBER)
+  RETURN NUMBER
+AS
+  v_super_typ_row dm_super_typ%rowtype;
+BEGIN
+  select * INTO v_super_typ_row FROM DM_SUPER_TYP WHERE SUPER_TYP_ID = p_super_type_id;
+  elsif v_super_typ_row.group_id is null then
+     return v_super_typ_row.super_typ_id;
+  else
+     return SEARCH_GROUND_LEVEL_ID (v_super_typ_row.group_id);
+  end if;
+END;
+/
