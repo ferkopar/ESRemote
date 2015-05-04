@@ -16,6 +16,14 @@ function alertIfDeveloper( p )
     }
 }
 
+function ChangeTreatmName(sender){
+  var textToDisplay= "";
+  textToDisplay += $("#P400_SUBJ1_ID option:selected").text() + " ";
+  textToDisplay += $("#P400_TREATM_TYPE_ID option:selected").text() + " ";
+  textToDisplay += $v(P400_TIME_START);
+  $s("P400_TREATM_NAME",textToDisplay);  
+}
+
 function SaveChanges(){ 
     alert($v("P400_TREATM_ID"));
     //if(! valid()){
