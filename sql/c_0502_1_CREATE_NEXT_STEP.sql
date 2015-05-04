@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id number)
+﻿CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id number)
 AS
 
 l_next_norma_id number(12,0);
@@ -29,24 +29,25 @@ BEGIN
     ,SUBJ2_ID = l_source_row.SUBJ2_ID
    WHERE TREATM_ID = l_next;
 
-  begin
-    SELECT treatm_id1 INTO l_norma_doc_id FROM TREATM_REL WHERE TREATM_ID2 = l_next_norma_id AND REL_TYPE_ID = 1308590191;
-    l_new_doc_id := COPY_TREATM_AND_PARAMS(l_norma_doc_id);
-    l_dummy := INSERT_TREATM_DOC_REL(l_next,l_new_doc_id);
-  exception when others then
-    null;
-  end;
-  
+--  begin
+--    SELECT treatm_id1 INTO l_norma_doc_id FROM TREATM_REL WHERE TREATM_ID2 = l_next_norma_id AND REL_TYPE_ID = 1308590191;
+--    l_new_doc_id := COPY_TREATM_AND_PARAMS(l_norma_doc_id);
+--    l_dummy := INSERT_TREATM_DOC_REL(l_next,l_new_doc_id);
+--  exception when others then
+--    null;
+--  end;
+  -- HACK
   if l_next_norma_id = 1308590711 then -- kezelés
      l_user_id := get_subj_id('PNAGY');
   elsif l_next_norma_id = 1308590708 then -- számla készítés
      l_user_id := get_subj_id('PNAGY');
   elsif l_next_norma_id = 1308590704 then -- számla kiegyenlítés
      l_user_id := get_subj_id('MFEHER');
-  elsif l_next_norma_id = 1308590714 then -- számla kiegyenlítés
+  elsif l_next_norma_id = 1308590714 then -- Beérkező paciensek fogadása
      l_user_id := get_subj_id('MFEHER');
+     l_dummy := INSERT_TREATM_DOC_REL(l_next,GET_NORMA_DOC_ID(p_treatm_id));
   end if;
-
+-- /HACK
   INSERT INTO ALERT (ALERT_TYPE_ID, MESSAGE_ID, SUBJ_ID, U_COMMENT)
                   VALUES (100,l_message_id,l_user_id,LOOKUP_SUBJ_NAME(l_source_row.subj2_id)) RETURNING alert_id INTO l_alert_id;     
        INSERT INTO ALERT_PARAM (ALERT_ID,PARAM_TYPE_ID,APEX_PAGE)
