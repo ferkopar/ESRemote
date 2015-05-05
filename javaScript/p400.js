@@ -18,14 +18,41 @@ function alertIfDeveloper( p )
 
 function ChangeTreatmName(sender){
   var textToDisplay= "";
-  textToDisplay += $("#P400_SUBJ1_ID option:selected").text() + " ";
-  textToDisplay += $("#P400_TREATM_TYPE_ID option:selected").text() + " ";
+  textToDisplay += $("#P400_SUBJ2_ID").children(':selected').text() + " ";
+  textToDisplay += $("#P400_TREATM_TYPE_ID").children(':selected').text() + " ";
   textToDisplay += $v(P400_TIME_START);
   $s("P400_TREATM_NAME",textToDisplay);  
 }
 
+function GoToDoc() {
+    SaveChanges();    
+    alert($("#P400_DOC_ID"));
+    if ( isEmpty( $("#P400_DOC_ID").val() )) {
+        alert("empy");
+        apex.submit({
+            request: "CREATE_DOCUMENT",
+            set:{"P400_ACTION":"DOC", "P1_EMPNO":5433}
+            });
+    }
+    else {
+         alert("full");
+        apex.submit({
+            request: "DOCUMENT",
+            set:{"P400_ACTION":"DOC", "P400_TREATM_ID":$v("P400_DOC_ID")}
+           });
+    }
+
+}
+
+function GoToNextStep(){
+    SaveChanges();
+     apex.submit({
+            request: "NEXT"            
+            });
+}
+
 function SaveChanges(){ 
-    alert($v("P400_TREATM_ID"));
+  //  alert($v("P400_TREATM_ID"));
     //if(! valid()){
     //    alert('Kötelező mező nincs kitöltve' + ErrorString); 
     //    return;
@@ -54,7 +81,7 @@ function SaveChanges(){
         sqlScript += ",SUBJ2_ID=" + numberOrNull($v("P400_SUBJ2_ID"));
     }
     sqlScript += " where treatm_id = "+ $v("P400_TREATM_ID")+" RETURNING TREATM_ID INTO :1";
-    //$s("P400_DESCRIPTION",sqlScript);
+    $s("P400_DESCRIPTION",sqlScript);
     get.addParam("x01",sqlScript);
     gReturn = get.get();
    // alert( gReturn );
@@ -100,7 +127,7 @@ function SaveChanges(){
             get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=Execute',400);
             get.addParam("x01",sqlScript);
             gReturn = get.get();
-            $s("P400_DESCRIPTION",$v("P400_DESCRIPTION")+"_"+gReturn);
+           // $s("P400_DESCRIPTION",$v("P400_DESCRIPTION")+"_"+gReturn);
         }
     });
 } 

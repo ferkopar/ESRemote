@@ -1,0 +1,7 @@
+﻿CREATE OR REPLACE FUNCTION OBH_TEST.INSERT_TREATM_SOURCE_REL (p_norma number,p_fact number)
+  RETURN number
+AS
+BEGIN
+  return INSERT_TREATM_REL(p_fact,p_norma,1308591324);
+END;
+/

@@ -1,7 +1,8 @@
-﻿CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id number)
+﻿CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id NUMBER, p_is_doc VARCHAR2 DEFAULT 'NO')
 AS
 
 l_next_norma_id number(12,0);
+l_norma_id number(12,0);
 l_next number(12,0);
 
 l_user_id number(12,0);
@@ -13,14 +14,27 @@ l_new_doc_id number(12,0);
 
 l_source_row treatm%ROWTYPE;
 l_norma_row treatm%ROWTYPE;
- 
+l_treatm_id number(12,0);
+
 BEGIN
-   
+    IF p_is_doc = 'YES' THEN
+     l_treatm_id := GET_DOC_TREATM_ID (p_treatm_id);
+    ELSE 
+     l_treatm_id := p_treatm_id;
+   END IF;
+   l_norma_id := GET_NORMA_ID(p_treatm_id);
    select * into l_source_row FROM TREATM WHERE TREATM_ID = p_treatm_id;
-   select VALUE_TYPE_ID INTO l_next_norma_id from TREATM_PARAM WHERE TREATM_ID = p_treatm_id AND PARAM_TYPE_ID = 1308590034;
+   select VALUE_TYPE_ID INTO l_next_norma_id from TREATM_PARAM WHERE TREATM_ID = l_norma_id AND PARAM_TYPE_ID = 1308590034;
    SELECT * into l_norma_row FROM TREATM WHERE TREATM_ID = l_next_norma_id;
    l_next := COPY_TREATM_AND_PARAMS(l_next_norma_id);
-   SELECT alert_text_id into l_message_id from W_PF_TREATM_ALERT_TEXT where TREATM_ID = l_next_norma_id;
+   BEGIN
+     SELECT alert_text_id into l_message_id from W_PF_TREATM_ALERT_TEXT where TREATM_ID = l_next_norma_id;
+    EXCEPTION WHEN OTHERS THEN
+     l_message_id := 100;
+   END;
+   
+--   SELECT alert_text_id into l_message_id from W_PF_TREATM_ALERT_TEXT where TREATM_ID = l_next_norma_id;
+   l_dummy := INSERT_TREATM_N_K_REL(l_next_norma_id,l_next);
    update TREATM set TREATM_GROUP_ID = 1604
     ,TREATM_NAME = LOOKUP_SUBJ_NAME(l_source_row.subj2_id)||'-' || LOOKUP_SUPER_TYPE_NAME(l_norma_row.treatm_type_id)  
     ,TYPE1_ID = l_source_row.TYPE1_ID
