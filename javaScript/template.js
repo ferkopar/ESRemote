@@ -1,4 +1,4 @@
-var dirty = false;
+var formIsDirty = false;
 
 function  GetTranslated(tx){ 
         
@@ -23,5 +23,5 @@ function LanguageChanged(){
 function dirty(param){
     $this = $(param);
     $this.addClass( "dirty" );
-    dirty = true;
+    formIsDirty = true;
 }

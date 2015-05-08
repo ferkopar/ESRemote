@@ -23,6 +23,7 @@ BEGIN
     ,TO_DATE = l_treatm_row.TO_DATE
     ,TIME_START = l_treatm_row.TIME_START
     ,TIME_END = l_treatm_row.TIME_END
+    ,TREATM_NAME = LOOKUP_SUBJ_NAME(l_treatm_row.SUBJ2_ID)|| ' ' || LOOKUP_SUPER_TYPE_NAME(l_treatm_row.TREATM_TYPE_ID)|| ' '|| TO_CHAR(l_treatm_row.TIME_START,'YYYY.MM.DD HH24:MIN:SS')
    WHERE TREATM_ID = l_new_doc_id;
 
   -- /HACK

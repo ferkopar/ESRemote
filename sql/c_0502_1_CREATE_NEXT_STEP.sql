@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id NUMBER, p_is_doc VARCHAR2 DEFAULT 'NO')
+﻿CREATE OR REPLACE PROCEDURE OBH_TEST.CREATE_NEXT_STEP (p_treatm_id NUMBER)
 AS
 
 l_next_norma_id number(12,0);
@@ -17,16 +17,15 @@ l_norma_row treatm%ROWTYPE;
 l_treatm_id number(12,0);
 
 BEGIN
-    IF p_is_doc = 'YES' THEN
-     l_treatm_id := GET_DOC_TREATM_ID (p_treatm_id);
-    ELSE 
-     l_treatm_id := p_treatm_id;
-   END IF;
-   l_norma_id := GET_NORMA_ID(p_treatm_id);
-   select * into l_source_row FROM TREATM WHERE TREATM_ID = p_treatm_id;
-   select VALUE_TYPE_ID INTO l_next_norma_id from TREATM_PARAM WHERE TREATM_ID = l_norma_id AND PARAM_TYPE_ID = 1308590034;
-   SELECT * into l_norma_row FROM TREATM WHERE TREATM_ID = l_next_norma_id;
-   l_next := COPY_TREATM_AND_PARAMS(l_next_norma_id);
+  BEGIN
+     l_norma_id := GET_NORMA_ID(p_treatm_id);
+     select * into l_source_row FROM TREATM WHERE TREATM_ID = p_treatm_id;
+     select VALUE_TYPE_ID INTO l_next_norma_id from TREATM_PARAM WHERE TREATM_ID = l_norma_id AND PARAM_TYPE_ID = 1308590034;
+     SELECT * into l_norma_row FROM TREATM WHERE TREATM_ID = l_next_norma_id;
+     l_next := COPY_TREATM_AND_PARAMS(l_next_norma_id);
+    EXCEPTION WHEN OTHERS THEN
+     RAISE_APPLICATION_ERROR(-20000,'nem volt !!!!');
+   END;
    BEGIN
      SELECT alert_text_id into l_message_id from W_PF_TREATM_ALERT_TEXT where TREATM_ID = l_next_norma_id;
     EXCEPTION WHEN OTHERS THEN
@@ -68,8 +67,13 @@ BEGIN
                      VALUES (l_alert_id,30201,400);
        INSERT INTO ALERT_PARAM (ALERT_ID,PARAM_TYPE_ID,APEX_VARIABLE,VALUE)
                      VALUES (l_alert_id,30202,'P400_TREATM_ID',l_next);
+       INSERT INTO ALERT_PARAM (ALERT_ID,PARAM_TYPE_ID,APEX_VARIABLE,VALUE)
+                     VALUES (l_alert_id,30202,'P400_ACTION','CREATE_FACT');
        INSERT INTO ALERT_PARAM (ALERT_ID,PARAM_TYPE_ID,VALUE)
                    VALUES (l_alert_id,30203,'NEXT');
+
+  SELECT tp.VALUE_TYPE_ID INTO l_message_id FROM TREATM_PARAM tp WHERE tp.TREATM_ID = p_treatm_id AND tp.PARAM_TYPE_ID = 1308591648;
+  UPDATE ALERT a SET a.STATUS_ID = 919 WHERE l_alert_id = a.ALERT_ID;
       
 END;
 /

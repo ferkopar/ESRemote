@@ -26,26 +26,30 @@ function ChangeTreatmName(sender){
 
 function GoToDoc() {
     SaveChanges();    
-    alert($("#P400_DOC_ID"));
+
     if ( isEmpty( $("#P400_DOC_ID").val() )) {
         alert("empy");
         apex.submit({
             request: "CREATE_DOCUMENT",
-            set:{"P400_ACTION":"DOC", "P1_EMPNO":5433}
+            set:{"P400_ACTION":"DOC",
+                 "P400_P_TREARM_ID":$v("P400_TREATM_ID")}
             });
     }
     else {
          alert("full");
         apex.submit({
             request: "DOCUMENT",
-            set:{"P400_ACTION":"DOC", "P400_TREATM_ID":$v("P400_DOC_ID")}
+            set:{"P400_ACTION":"DOC",
+                 "P400_TREATM_ID":$v("P400_DOC_ID"),
+                 "P400_P_TREARM_ID":$v("P400_TREATM_ID")
+                 }
            });
     }
 
 }
 
 function GoToNextStep(){
-    SaveChanges();
+     SaveChanges();
      apex.submit({
             request: "NEXT"            
             });
@@ -57,34 +61,46 @@ function SaveChanges(){
     //    alert('Kötelező mező nincs kitöltve' + ErrorString); 
     //    return;
     //}
+    
+    if (!dirty) return;
+    var d = false;
     var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=Execute',400);
     var sqlScript = "update treatm set ";
     if($("#P400_TREATM_NAME").hasClass( "dirty" )){
         sqlScript += "TREATM_NAME=" + stringOrNull($v("P400_TREATM_NAME"));
+        d=true;
     }
     if($("#P400_TIME_START").hasClass( "dirty" )){
         sqlScript += ",TIME_START=" + dateOrNull($v("P400_TIME_START"));
+        d=true;
     }
     if($("#P400_TIME_END").hasClass( "dirty" )){
         sqlScript += ",TIME_END=" + dateOrNull($v("P400_TIME_END"));
+        d=true;
     }
     if($("#P400_TYPE1_ID").hasClass( "dirty" )){
         sqlScript += ",TYPE1_ID=" + numberOrNull($v("P400_TYPE1_ID"));
+        d=true;
     }
     if($("#P400_TYPE2_ID").hasClass( "dirty" )){
         sqlScript += ",TYPE2_ID=" + numberOrNull($v("P400_TYPE2_ID"));
+        d=true;
     }
     if($("#P400_SUBJ1_ID").hasClass( "dirty" )){
         sqlScript += ",SUBJ1_ID=" + numberOrNull($v("P400_SUBJ1_ID"));
+        d=true;
     }
     if($("#P400_SUBJ2_ID").hasClass( "dirty" )){
         sqlScript += ",SUBJ2_ID=" + numberOrNull($v("P400_SUBJ2_ID"));
+        d=true;
     }
-    sqlScript += " where treatm_id = "+ $v("P400_TREATM_ID")+" RETURNING TREATM_ID INTO :1";
-    $s("P400_DESCRIPTION",sqlScript);
-    get.addParam("x01",sqlScript);
-    gReturn = get.get();
-   // alert( gReturn );
+    if (d) {
+        sqlScript += " where treatm_id = " + $v("P400_TREATM_ID") + " RETURNING TREATM_ID INTO :1";
+        $s("P400_DESCRIPTION", sqlScript);
+        get.addParam("x01", sqlScript);
+        gReturn = get.get();
+        // alert( gReturn );
+    }
     get = null; 
     $("#ParameterTable>tbody tr").each(function() {
         $this = $(this);
@@ -130,6 +146,7 @@ function SaveChanges(){
            // $s("P400_DESCRIPTION",$v("P400_DESCRIPTION")+"_"+gReturn);
         }
     });
+
 } 
 
 function GetTable(){
