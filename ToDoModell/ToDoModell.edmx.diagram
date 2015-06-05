@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e0cce6f308c431ebe121c56855f76e0" Name="Diagram1">
+        <EntityTypeShape EntityType="ToDoModel.DM_LANGUAGE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToDoModel.DM_SUPER_TYP" Width="1.5" PointX="4.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToDoModel.DM_TEXT" Width="1.5" PointX="9.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToDoModel.DM_TRANSLATE" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ToDoModel.SYS_C0072046" />
+        <EntityTypeShape EntityType="ToDoModel.DM_TREATM" Width="1.5" PointX="7.375" PointY="0.625" />
+        <AssociationConnector Association="ToDoModel.FK_DM_TREATM_CATEGOTY" />
+        <AssociationConnector Association="ToDoModel.FK_DM_TREATM_TREATM_TYPE" />
+        <EntityTypeShape EntityType="ToDoModel.TREATM" Width="1.5" PointX="7.125" PointY="11" />
+        <EntityTypeShape EntityType="ToDoModel.TREATM_PARAM" Width="1.5" PointX="9.375" PointY="11" />
+        <EntityTypeShape EntityType="ToDoModel.TREATM_REL" Width="1.5" PointX="2.625" PointY="7.25" />
+        <AssociationConnector Association="ToDoModel.FK_TRTM_DSRT_TRTTYID" />
+        <AssociationConnector Association="ToDoModel.FK_TRTM_DSRT_TYID1" />
+        <AssociationConnector Association="ToDoModel.FK_TRTM_DSRT_TYID2" />
+        <AssociationConnector Association="ToDoModel.FK_TREATM_PARAM" />
+        <AssociationConnector Association="ToDoModel.FK_TREATM_PARAM_PREV" />
+        <EntityTypeShape EntityType="ToDoModel.VT_DM_TRANSLATE" Width="1.5" PointX="0.75" PointY="6" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

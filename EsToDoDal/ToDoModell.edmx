@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OBH_TEST.DM_SUBJECT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DM_SUBJECT">
+          <Property Name="DM_SUBJECT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ_PARAM_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="MANDATORY" Type="number" Precision="1" Scale="0" />
+          <Property Name="MULTIPLY" Type="number" Precision="1" Scale="0" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="ORDER_NO" Type="number" Precision="4" Scale="0" />
+          <Property Name="VALUE_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DIMENSION_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DIMENSION_ALLOWED" Type="number" Precision="1" Scale="0" />
+          <Property Name="TABLE_ROLL" Type="nvarchar2" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="GROUND_LEVEL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="SUPER_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="SLEVEL" Type="number" Precision="3" Scale="0" />
+          <Property Name="WK_CLASS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="FROM_DATE" Type="date" Nullable="false" />
+          <Property Name="TO_DATE" Type="date" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="USE_COMMENT" Type="varchar2" MaxLength="255" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="WIRED_TO" Type="nvarchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="USER_PSWD" Type="varchar2" MaxLength="255" />
+          <Property Name="USER_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="SUBJ_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="LANGUAGE_ID" Type="number" Precision="12" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OBH_TEST.WK_PF_MENU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WK_PF_MENU">
+          <Key>
+            <PropertyRef Name="ROLL_TYPE" />
+          </Key>
+          <Property Name="LVL" Type="number" Precision="38" Scale="0" />
+          <Property Name="LABEL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="PAGE_ID" Type="nvarchar2" MaxLength="50" />
+          <Property Name="IS_CURRENT_LIST_ENTRY" Type="nvarchar2" MaxLength="255" />
+          <Property Name="IMAGE" Type="nvarchar2" MaxLength="255" />
+          <Property Name="IMAGE_ATTRIBUTE" Type="nvarchar2" MaxLength="255" />
+          <Property Name="IMAGE_ALT_ATTRIBUTE" Type="nvarchar2" MaxLength="255" />
+          <Property Name="ORDER1" Type="number" Precision="38" Scale="0" />
+          <Property Name="MENU_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ORDER2" Type="number" Precision="38" Scale="0" />
+          <Property Name="TREATM_GROUP_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_DMRU_DSRT' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_DMRU_DSRT" />-->
+        <Function Name="USER_ROLE_LEVEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="OBH_TEST" ReturnType="number">
+          <Parameter Name="USER" Type="varchar2" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_USER" EntityType="Self.DM_USER" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="WK_PF_MENU" EntityType="Self.WK_PF_MENU" store:Type="Tables" store:Schema="OBH_TEST">
+            <DefiningQuery>SELECT 
+"WK_PF_MENU"."LVL" AS "LVL", 
+"WK_PF_MENU"."LABEL" AS "LABEL", 
+"WK_PF_MENU"."PAGE_ID" AS "PAGE_ID", 
+"WK_PF_MENU"."IS_CURRENT_LIST_ENTRY" AS "IS_CURRENT_LIST_ENTRY", 
+"WK_PF_MENU"."IMAGE" AS "IMAGE", 
+"WK_PF_MENU"."IMAGE_ATTRIBUTE" AS "IMAGE_ATTRIBUTE", 
+"WK_PF_MENU"."IMAGE_ALT_ATTRIBUTE" AS "IMAGE_ALT_ATTRIBUTE", 
+"WK_PF_MENU"."ORDER1" AS "ORDER1", 
+"WK_PF_MENU"."MENU_ID" AS "MENU_ID", 
+"WK_PF_MENU"."ORDER2" AS "ORDER2", 
+"WK_PF_MENU"."TREATM_GROUP_ID" AS "TREATM_GROUP_ID", 
+"WK_PF_MENU"."APEX_VARIABLE" AS "APEX_VARIABLE", 
+"WK_PF_MENU"."ROLL_TYPE" AS "ROLL_TYPE"
+FROM "OBH_TEST"."WK_PF_MENU" "WK_PF_MENU"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" />
+          <Property Name="GROUND_LEVEL_ID" Type="Int64" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPER_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SLEVEL" Type="Int16" />
+          <Property Name="WK_CLASS_ID" Type="Int64" />
+          <Property Name="FROM_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TO_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USE_COMMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="Int16" />
+          <Property Name="WIRED_TO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+          <Property Name="USER_PSWD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="SUBJ_ID" Type="Int64" />
+          <Property Name="LANGUAGE_ID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="WK_PF_MENU">
+          <Key>
+            <PropertyRef Name="ROLL_TYPE" />
+          </Key>
+          <Property Name="LVL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LABEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PAGE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IS_CURRENT_LIST_ENTRY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE_ATTRIBUTE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE_ALT_ATTRIBUTE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER1" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MENU_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ORDER2" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TREATM_GROUP_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ROLL_TYPE" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ToDoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" />
+          <EntitySet Name="DM_USER" EntityType="Self.DM_USER" />
+          <EntitySet Name="WK_PF_MENU" EntityType="Self.WK_PF_MENU" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ToDoEntities">
+          <EntitySetMapping Name="DM_SUPER_TYP">
+            <EntityTypeMapping TypeName="Model.DM_SUPER_TYP">
+              <MappingFragment StoreEntitySet="DM_SUPER_TYP">
+                <ScalarProperty Name="SUPER_TYP_ID" ColumnName="SUPER_TYP_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="GROUND_LEVEL_ID" ColumnName="GROUND_LEVEL_ID" />
+                <ScalarProperty Name="SUPER_TYPE_NAME" ColumnName="SUPER_TYPE_NAME" />
+                <ScalarProperty Name="SUPER_TYPE_SHORT_NAME" ColumnName="SUPER_TYPE_SHORT_NAME" />
+                <ScalarProperty Name="SUPER_GROUP_NAME" ColumnName="SUPER_GROUP_NAME" />
+                <ScalarProperty Name="SLEVEL" ColumnName="SLEVEL" />
+                <ScalarProperty Name="WK_CLASS_ID" ColumnName="WK_CLASS_ID" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="USE_COMMENT" ColumnName="USE_COMMENT" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+                <ScalarProperty Name="WIRED_TO" ColumnName="WIRED_TO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_USER">
+            <EntityTypeMapping TypeName="Model.DM_USER">
+              <MappingFragment StoreEntitySet="DM_USER">
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="USER_PSWD" ColumnName="USER_PSWD" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="SUBJ_ID" ColumnName="SUBJ_ID" />
+                <ScalarProperty Name="LANGUAGE_ID" ColumnName="LANGUAGE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WK_PF_MENU">
+            <EntityTypeMapping TypeName="Model.WK_PF_MENU">
+              <MappingFragment StoreEntitySet="WK_PF_MENU">
+                <ScalarProperty Name="LVL" ColumnName="LVL" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="PAGE_ID" ColumnName="PAGE_ID" />
+                <ScalarProperty Name="IS_CURRENT_LIST_ENTRY" ColumnName="IS_CURRENT_LIST_ENTRY" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="IMAGE_ATTRIBUTE" ColumnName="IMAGE_ATTRIBUTE" />
+                <ScalarProperty Name="IMAGE_ALT_ATTRIBUTE" ColumnName="IMAGE_ALT_ATTRIBUTE" />
+                <ScalarProperty Name="ORDER1" ColumnName="ORDER1" />
+                <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+                <ScalarProperty Name="ORDER2" ColumnName="ORDER2" />
+                <ScalarProperty Name="TREATM_GROUP_ID" ColumnName="TREATM_GROUP_ID" />
+                <ScalarProperty Name="APEX_VARIABLE" ColumnName="APEX_VARIABLE" />
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

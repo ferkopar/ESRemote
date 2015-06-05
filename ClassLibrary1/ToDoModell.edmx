@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="GROUND_LEVEL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="SUPER_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="SLEVEL" Type="number" Precision="3" Scale="0" />
+          <Property Name="WK_CLASS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="FROM_DATE" Type="date" Nullable="false" />
+          <Property Name="TO_DATE" Type="date" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="USE_COMMENT" Type="varchar2" MaxLength="255" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="WIRED_TO" Type="nvarchar2" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OBH_TEST.DM_TEXT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DM_TEXT">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TEXT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="LANGUAGE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TRANSL_TYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="CNAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="HELP_TEXT" Type="clob" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="PRINT_TEXT" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="date" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="date" />
+          <Property Name="HUN_NAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="W_FORM" Type="nvarchar2" MaxLength="30" />
+          <Property Name="W_LANGUAGE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="REFERENCE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_ERROR" Type="varchar2" MaxLength="255" />
+          <Property Name="W_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OBH_TEST.DM_TRANSLATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="TRANSLATE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TEXT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DISPLAY_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_COL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_PK_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_ROWS" Type="number" Precision="12" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_TYPE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_TYPE2" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE2" Type="varchar2" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="W_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="W_REFERENCE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_DISPLAY_TYPE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_APEX_VARIABLE" Type="varchar2" MaxLength="2000" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_TEXT" EntityType="Self.DM_TEXT" store:Type="Tables" store:Schema="OBH_TEST">
+            <DefiningQuery>SELECT 
+"DM_TEXT"."DM_TEXT_ID" AS "DM_TEXT_ID", 
+"DM_TEXT"."TEXT_ID" AS "TEXT_ID", 
+"DM_TEXT"."LANGUAGE_ID" AS "LANGUAGE_ID", 
+"DM_TEXT"."TRANSL_TYPE" AS "TRANSL_TYPE", 
+"DM_TEXT"."CNAMES" AS "CNAMES", 
+"DM_TEXT"."HELP_TEXT" AS "HELP_TEXT", 
+"DM_TEXT"."DESCRIPTION" AS "DESCRIPTION", 
+"DM_TEXT"."PRINT_TEXT" AS "PRINT_TEXT", 
+"DM_TEXT"."FROM_DATE" AS "FROM_DATE", 
+"DM_TEXT"."TO_DATE" AS "TO_DATE", 
+"DM_TEXT"."CRU" AS "CRU", 
+"DM_TEXT"."CRD" AS "CRD", 
+"DM_TEXT"."MDU" AS "MDU", 
+"DM_TEXT"."MDD" AS "MDD", 
+"DM_TEXT"."HUN_NAMES" AS "HUN_NAMES", 
+"DM_TEXT"."W_FORM" AS "W_FORM", 
+"DM_TEXT"."W_LANGUAGE_CODE" AS "W_LANGUAGE_CODE", 
+"DM_TEXT"."REFERENCE_CODE" AS "REFERENCE_CODE", 
+"DM_TEXT"."W_ERROR" AS "W_ERROR", 
+"DM_TEXT"."W_GROUP_NAME" AS "W_GROUP_NAME", 
+"DM_TEXT"."STATUS_ID" AS "STATUS_ID"
+FROM "OBH_TEST"."DM_TEXT" "DM_TEXT"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DM_TRANSLATE" EntityType="Self.DM_TRANSLATE" store:Type="Tables" store:Schema="OBH_TEST">
+            <DefiningQuery>SELECT 
+"DM_TRANSLATE"."TRANSLATE_ID" AS "TRANSLATE_ID", 
+"DM_TRANSLATE"."TEXT_ID" AS "TEXT_ID", 
+"DM_TRANSLATE"."DISPLAY_TYPE_ID" AS "DISPLAY_TYPE_ID", 
+"DM_TRANSLATE"."TBL_NAME" AS "TBL_NAME", 
+"DM_TRANSLATE"."TBL_COL_NAME" AS "TBL_COL_NAME", 
+"DM_TRANSLATE"."TBL_PK_ID" AS "TBL_PK_ID", 
+"DM_TRANSLATE"."TBL_ROWS" AS "TBL_ROWS", 
+"DM_TRANSLATE"."APEX_VARIABLE" AS "APEX_VARIABLE", 
+"DM_TRANSLATE"."PARAM_TYPE1" AS "PARAM_TYPE1", 
+"DM_TRANSLATE"."PARAM_VALUE1" AS "PARAM_VALUE1", 
+"DM_TRANSLATE"."PARAM_TYPE2" AS "PARAM_TYPE2", 
+"DM_TRANSLATE"."PARAM_VALUE2" AS "PARAM_VALUE2", 
+"DM_TRANSLATE"."DESCRIPTION" AS "DESCRIPTION", 
+"DM_TRANSLATE"."W_GROUP_NAME" AS "W_GROUP_NAME", 
+"DM_TRANSLATE"."FROM_DATE" AS "FROM_DATE", 
+"DM_TRANSLATE"."TO_DATE" AS "TO_DATE", 
+"DM_TRANSLATE"."CRU" AS "CRU", 
+"DM_TRANSLATE"."CRD" AS "CRD", 
+"DM_TRANSLATE"."MDU" AS "MDU", 
+"DM_TRANSLATE"."MDD" AS "MDD", 
+"DM_TRANSLATE"."W_REFERENCE_CODE" AS "W_REFERENCE_CODE", 
+"DM_TRANSLATE"."W_DISPLAY_TYPE" AS "W_DISPLAY_TYPE", 
+"DM_TRANSLATE"."W_APEX_VARIABLE" AS "W_APEX_VARIABLE", 
+"DM_TRANSLATE"."STATUS_ID" AS "STATUS_ID", 
+"DM_TRANSLATE"."APEX_PAGE" AS "APEX_PAGE"
+FROM "OBH_TEST"."DM_TRANSLATE" "DM_TRANSLATE"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" />
+          <Property Name="GROUND_LEVEL_ID" Type="Int64" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPER_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SLEVEL" Type="Int16" />
+          <Property Name="WK_CLASS_ID" Type="Int64" />
+          <Property Name="FROM_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TO_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USE_COMMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="Int16" />
+          <Property Name="WIRED_TO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_TEXT">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="Int64" Nullable="false" />
+          <Property Name="TEXT_ID" Type="Int64" />
+          <Property Name="LANGUAGE_ID" Type="Int64" />
+          <Property Name="TRANSL_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HELP_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRINT_TEXT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" />
+          <Property Name="HUN_NAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="W_FORM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="W_LANGUAGE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_ERROR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="TRANSLATE_ID" Type="Int64" />
+          <Property Name="TEXT_ID" Type="Int64" />
+          <Property Name="DISPLAY_TYPE_ID" Type="Int64" />
+          <Property Name="TBL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_COL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_PK_ID" Type="Int64" />
+          <Property Name="TBL_ROWS" Type="Int64" />
+          <Property Name="APEX_VARIABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_TYPE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_TYPE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="W_REFERENCE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_DISPLAY_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_APEX_VARIABLE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" />
+          <EntitySet Name="DM_TEXT" EntityType="Self.DM_TEXT" />
+          <EntitySet Name="DM_TRANSLATE" EntityType="Self.DM_TRANSLATE" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="DM_SUPER_TYP">
+            <EntityTypeMapping TypeName="Model.DM_SUPER_TYP">
+              <MappingFragment StoreEntitySet="DM_SUPER_TYP">
+                <ScalarProperty Name="SUPER_TYP_ID" ColumnName="SUPER_TYP_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="GROUND_LEVEL_ID" ColumnName="GROUND_LEVEL_ID" />
+                <ScalarProperty Name="SUPER_TYPE_NAME" ColumnName="SUPER_TYPE_NAME" />
+                <ScalarProperty Name="SUPER_TYPE_SHORT_NAME" ColumnName="SUPER_TYPE_SHORT_NAME" />
+                <ScalarProperty Name="SUPER_GROUP_NAME" ColumnName="SUPER_GROUP_NAME" />
+                <ScalarProperty Name="SLEVEL" ColumnName="SLEVEL" />
+                <ScalarProperty Name="WK_CLASS_ID" ColumnName="WK_CLASS_ID" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="USE_COMMENT" ColumnName="USE_COMMENT" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+                <ScalarProperty Name="WIRED_TO" ColumnName="WIRED_TO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TEXT">
+            <EntityTypeMapping TypeName="Model.DM_TEXT">
+              <MappingFragment StoreEntitySet="DM_TEXT">
+                <ScalarProperty Name="DM_TEXT_ID" ColumnName="DM_TEXT_ID" />
+                <ScalarProperty Name="TEXT_ID" ColumnName="TEXT_ID" />
+                <ScalarProperty Name="LANGUAGE_ID" ColumnName="LANGUAGE_ID" />
+                <ScalarProperty Name="TRANSL_TYPE" ColumnName="TRANSL_TYPE" />
+                <ScalarProperty Name="CNAMES" ColumnName="CNAMES" />
+                <ScalarProperty Name="HELP_TEXT" ColumnName="HELP_TEXT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PRINT_TEXT" ColumnName="PRINT_TEXT" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="HUN_NAMES" ColumnName="HUN_NAMES" />
+                <ScalarProperty Name="W_FORM" ColumnName="W_FORM" />
+                <ScalarProperty Name="W_LANGUAGE_CODE" ColumnName="W_LANGUAGE_CODE" />
+                <ScalarProperty Name="REFERENCE_CODE" ColumnName="REFERENCE_CODE" />
+                <ScalarProperty Name="W_ERROR" ColumnName="W_ERROR" />
+                <ScalarProperty Name="W_GROUP_NAME" ColumnName="W_GROUP_NAME" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TRANSLATE">
+            <EntityTypeMapping TypeName="Model.DM_TRANSLATE">
+              <MappingFragment StoreEntitySet="DM_TRANSLATE">
+                <ScalarProperty Name="TRANSLATE_ID" ColumnName="TRANSLATE_ID" />
+                <ScalarProperty Name="TEXT_ID" ColumnName="TEXT_ID" />
+                <ScalarProperty Name="DISPLAY_TYPE_ID" ColumnName="DISPLAY_TYPE_ID" />
+                <ScalarProperty Name="TBL_NAME" ColumnName="TBL_NAME" />
+                <ScalarProperty Name="TBL_COL_NAME" ColumnName="TBL_COL_NAME" />
+                <ScalarProperty Name="TBL_PK_ID" ColumnName="TBL_PK_ID" />
+                <ScalarProperty Name="TBL_ROWS" ColumnName="TBL_ROWS" />
+                <ScalarProperty Name="APEX_VARIABLE" ColumnName="APEX_VARIABLE" />
+                <ScalarProperty Name="PARAM_TYPE1" ColumnName="PARAM_TYPE1" />
+                <ScalarProperty Name="PARAM_VALUE1" ColumnName="PARAM_VALUE1" />
+                <ScalarProperty Name="PARAM_TYPE2" ColumnName="PARAM_TYPE2" />
+                <ScalarProperty Name="PARAM_VALUE2" ColumnName="PARAM_VALUE2" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="W_GROUP_NAME" ColumnName="W_GROUP_NAME" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="W_REFERENCE_CODE" ColumnName="W_REFERENCE_CODE" />
+                <ScalarProperty Name="W_DISPLAY_TYPE" ColumnName="W_DISPLAY_TYPE" />
+                <ScalarProperty Name="W_APEX_VARIABLE" ColumnName="W_APEX_VARIABLE" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="APEX_PAGE" ColumnName="APEX_PAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

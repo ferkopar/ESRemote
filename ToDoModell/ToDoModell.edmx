@@ -1,0 +1,1124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ToDoModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DM_LANGUAGE">
+          <Key>
+            <PropertyRef Name="LANGUAGE_ID" />
+          </Key>
+          <Property Name="LANGUAGE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="LANGUAGE_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="LANGUAGE_TYP" Type="varchar2" MaxLength="50" />
+          <Property Name="RL" Type="varchar2" MaxLength="1" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="LANGUAGE_CODE" Type="varchar2" MaxLength="3" />
+          <Property Name="W_COUNTRY_TRICODE" Type="varchar2" MaxLength="3" />
+          <Property Name="ISO639_3" Type="varchar2" MaxLength="3" />
+          <Property Name="ISO639_2" Type="varchar2" MaxLength="30" />
+          <Property Name="ISO639_1" Type="varchar2" MaxLength="5" />
+          <Property Name="HUN_NAME" Type="varchar2" MaxLength="500" />
+          <Property Name="ENG_NAME" Type="varchar2" MaxLength="500" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="FLAG_ID" Type="number" Precision="12" Scale="0" />
+        </EntityType>
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="GROUND_LEVEL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="SUPER_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="SLEVEL" Type="number" Precision="3" Scale="0" />
+          <Property Name="WK_CLASS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="FROM_DATE" Type="date" Nullable="false" />
+          <Property Name="TO_DATE" Type="date" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="USE_COMMENT" Type="varchar2" MaxLength="255" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="WIRED_TO" Type="nvarchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_TEXT">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TEXT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="LANGUAGE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TRANSL_TYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="CNAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="HELP_TEXT" Type="clob" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="PRINT_TEXT" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="date" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="date" />
+          <Property Name="HUN_NAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="W_FORM" Type="nvarchar2" MaxLength="30" />
+          <Property Name="W_LANGUAGE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="REFERENCE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_ERROR" Type="varchar2" MaxLength="255" />
+          <Property Name="W_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="TRANSLATE_ID" />
+          </Key>
+          <Property Name="TRANSLATE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TEXT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DISPLAY_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_COL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_PK_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_ROWS" Type="number" Precision="12" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_TYPE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_TYPE2" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE2" Type="varchar2" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="W_GROUP_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="W_REFERENCE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_DISPLAY_TYPE" Type="varchar2" MaxLength="255" />
+          <Property Name="W_APEX_VARIABLE" Type="varchar2" MaxLength="2000" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="DM_TREATM">
+          <Key>
+            <PropertyRef Name="DM_TREATM_ID" />
+          </Key>
+          <Property Name="DM_TREATM_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TREATM_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_CATEGORY_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_PARAM_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="MANDATORY" Type="number" Precision="1" Scale="0" />
+          <Property Name="MULTIPLY" Type="number" Precision="1" Scale="0" />
+          <Property Name="TABLE_ROLL" Type="nvarchar2" MaxLength="50" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="ORDER_NO" Type="number" Precision="4" Scale="0" />
+          <Property Name="VALUE_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="VALUE_GROUP_TABLE" Type="varchar2" MaxLength="50" />
+          <Property Name="VALUE_ALLOWED" Type="number" Precision="1" Scale="0" />
+          <Property Name="DIMENSION_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DIMENSION_ALLOWED" Type="number" Precision="1" Scale="0" />
+          <Property Name="USER_TYPE1_GROUP" Type="number" Precision="12" Scale="0" />
+          <Property Name="USER_TYPE2_GROUP" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="PARAM_VISIBLE" Type="number" Precision="1" Scale="0" />
+          <Property Name="VALUE_TYPE" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TREATM">
+          <Key>
+            <PropertyRef Name="TREATM_ID" />
+          </Key>
+          <Property Name="TREATM_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TREATM_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="TREATM_GROUP_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_CATEGORY_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="MM_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TIME_START" Type="date" />
+          <Property Name="TIME_END" Type="date" />
+          <Property Name="SUBJ1_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TYPE1_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ2_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TYPE2_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="4000" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="FROM_DATE" Type="date" Nullable="false" />
+          <Property Name="TO_DATE" Type="date" Nullable="false" />
+          <Property Name="TREATM_NAME_ID" Type="number" Precision="12" Scale="0" />
+        </EntityType>
+        <EntityType Name="TREATM_PARAM">
+          <Key>
+            <PropertyRef Name="TREATM_PARAM_ID" />
+          </Key>
+          <Property Name="TREATM_PARAM_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TREATM_PARAM1_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TREATM_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="EPI_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="SUBJ_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="PARAM_TYPE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="VALUE" Type="varchar2" MaxLength="255" />
+          <Property Name="UNIT_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="VALUE_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="ORDER_NO" Type="number" Precision="4" Scale="0" />
+          <Property Name="MM_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="4000" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="FROM_DATE" Type="date" Nullable="false" />
+          <Property Name="TO_DATE" Type="date" Nullable="false" />
+          <Property Name="UNIT" Type="varchar2" MaxLength="50" />
+          <Property Name="FIELD_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="ROLL_TYPE" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="TREATM_REL">
+          <Key>
+            <PropertyRef Name="TREATM_REL_ID" />
+          </Key>
+          <Property Name="TREATM_REL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TREATM_ID1" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TREATM_ID2" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="KOD1" Type="varchar2" MaxLength="100" />
+          <Property Name="KOD2" Type="varchar2" MaxLength="100" />
+          <Property Name="REL_TYPE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="EXTRA_NEXT_STEP" Type="varchar2" MaxLength="50" />
+          <Property Name="EPI_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="ORDER_NO" Type="number" Precision="4" Scale="0" />
+          <Property Name="TIME_START" Type="date" />
+          <Property Name="TIME_END" Type="date" />
+          <Property Name="MM_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="FROM_DATE" Type="date" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="4000" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="GO_ORDER_NO" Type="number" Precision="4" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OBH_TEST.VT_DM_TRANSLATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VT_DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+            <PropertyRef Name="TRANSLATE_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="TEXT_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="LANGUAGE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TRANSL_TYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="NAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="HELP_TEXT" Type="clob" />
+          <Property Name="TEXT_DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="PRINT_TEXT" Type="varchar2" MaxLength="255" />
+          <Property Name="TEXT_FROM_DAT" Type="date" />
+          <Property Name="TEXT_TO_DATE" Type="date" />
+          <Property Name="HUN_NAMES" Type="varchar2" MaxLength="4000" />
+          <Property Name="REFERENCE_CODE" Type="varchar2" MaxLength="255" />
+          <Property Name="TRANSLATE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="DISPLAY_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_COL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TBL_PK_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="TBL_ROWS" Type="number" Precision="12" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="varchar2" MaxLength="255" />
+          <Property Name="APEX_VARIABLE_PAGE" Type="number" Precision="10" Scale="0" />
+          <Property Name="PARAM_TYPE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE1" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_TYPE2" Type="varchar2" MaxLength="255" />
+          <Property Name="PARAM_VALUE2" Type="varchar2" MaxLength="255" />
+          <Property Name="TRANSLATE_DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="TRANSLATE_FROM_DATE" Type="date" />
+          <Property Name="TRANSLATE_TO_DATE" Type="date" />
+        </EntityType>
+        <Association Name="FK_DM_TREATM_CATEGOTY">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="DM_TREATM" Type="Self.DM_TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_TREATM">
+              <PropertyRef Name="TREATM_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_TREATM_TREATM_TYPE">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="DM_TREATM" Type="Self.DM_TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_TREATM">
+              <PropertyRef Name="TREATM_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TREATM_PARAM">
+          <End Role="TREATM" Type="Self.TREATM" Multiplicity="1" />
+          <End Role="TREATM_PARAM" Type="Self.TREATM_PARAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TREATM">
+              <PropertyRef Name="TREATM_ID" />
+            </Principal>
+            <Dependent Role="TREATM_PARAM">
+              <PropertyRef Name="TREATM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TREATM_PARAM_PREV">
+          <End Role="TREATM_PARAM" Type="Self.TREATM_PARAM" Multiplicity="0..1" />
+          <End Role="TREATM_PARAM1" Type="Self.TREATM_PARAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TREATM_PARAM">
+              <PropertyRef Name="TREATM_PARAM_ID" />
+            </Principal>
+            <Dependent Role="TREATM_PARAM1">
+              <PropertyRef Name="TREATM_PARAM1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRTM_DSRT_TRTTYID">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="TREATM" Type="Self.TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TREATM_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRTM_DSRT_TYID1">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="TREATM" Type="Self.TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TYPE1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRTM_DSRT_TYID2">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="TREATM" Type="Self.TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TYPE2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007019">
+          <End Role="DM_SUPER_TYP" Type="Self.DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Role="DM_SUPER_TYP1" Type="Self.DM_SUPER_TYP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_SUPER_TYP1">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="LOOKUP_SUPER_TYPE_NAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="OBH_TEST" ReturnType="varchar2">
+          <Parameter Name="P_SUPER_TYPE_ID" Type="number" Mode="In" />
+          <Parameter Name="P_TRANSLATE" Type="number" Mode="In" />
+          <Parameter Name="P_LANGUAGE_ID" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="ToDoModelStoreContainer">
+          <EntitySet Name="DM_LANGUAGE" EntityType="Self.DM_LANGUAGE" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_TEXT" EntityType="Self.DM_TEXT" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_TRANSLATE" EntityType="Self.DM_TRANSLATE" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="DM_TREATM" EntityType="Self.DM_TREATM" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="TREATM" EntityType="Self.TREATM" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="TREATM_PARAM" EntityType="Self.TREATM_PARAM" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="TREATM_REL" EntityType="Self.TREATM_REL" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="VT_DM_TRANSLATE" EntityType="Self.VT_DM_TRANSLATE" store:Type="Views" store:Schema="OBH_TEST">
+            <DefiningQuery>SELECT 
+"VT_DM_TRANSLATE"."DM_TEXT_ID" AS "DM_TEXT_ID", 
+"VT_DM_TRANSLATE"."TEXT_ID" AS "TEXT_ID", 
+"VT_DM_TRANSLATE"."LANGUAGE_ID" AS "LANGUAGE_ID", 
+"VT_DM_TRANSLATE"."TRANSL_TYPE" AS "TRANSL_TYPE", 
+"VT_DM_TRANSLATE"."NAMES" AS "NAMES", 
+"VT_DM_TRANSLATE"."HELP_TEXT" AS "HELP_TEXT", 
+"VT_DM_TRANSLATE"."TEXT_DESCRIPTION" AS "TEXT_DESCRIPTION", 
+"VT_DM_TRANSLATE"."PRINT_TEXT" AS "PRINT_TEXT", 
+"VT_DM_TRANSLATE"."TEXT_FROM_DAT" AS "TEXT_FROM_DAT", 
+"VT_DM_TRANSLATE"."TEXT_TO_DATE" AS "TEXT_TO_DATE", 
+"VT_DM_TRANSLATE"."HUN_NAMES" AS "HUN_NAMES", 
+"VT_DM_TRANSLATE"."REFERENCE_CODE" AS "REFERENCE_CODE", 
+"VT_DM_TRANSLATE"."TRANSLATE_ID" AS "TRANSLATE_ID", 
+"VT_DM_TRANSLATE"."DISPLAY_TYPE_ID" AS "DISPLAY_TYPE_ID", 
+"VT_DM_TRANSLATE"."TBL_NAME" AS "TBL_NAME", 
+"VT_DM_TRANSLATE"."TBL_COL_NAME" AS "TBL_COL_NAME", 
+"VT_DM_TRANSLATE"."TBL_PK_ID" AS "TBL_PK_ID", 
+"VT_DM_TRANSLATE"."TBL_ROWS" AS "TBL_ROWS", 
+"VT_DM_TRANSLATE"."APEX_VARIABLE" AS "APEX_VARIABLE", 
+"VT_DM_TRANSLATE"."APEX_VARIABLE_PAGE" AS "APEX_VARIABLE_PAGE", 
+"VT_DM_TRANSLATE"."PARAM_TYPE1" AS "PARAM_TYPE1", 
+"VT_DM_TRANSLATE"."PARAM_VALUE1" AS "PARAM_VALUE1", 
+"VT_DM_TRANSLATE"."PARAM_TYPE2" AS "PARAM_TYPE2", 
+"VT_DM_TRANSLATE"."PARAM_VALUE2" AS "PARAM_VALUE2", 
+"VT_DM_TRANSLATE"."TRANSLATE_DESCRIPTION" AS "TRANSLATE_DESCRIPTION", 
+"VT_DM_TRANSLATE"."TRANSLATE_FROM_DATE" AS "TRANSLATE_FROM_DATE", 
+"VT_DM_TRANSLATE"."TRANSLATE_TO_DATE" AS "TRANSLATE_TO_DATE"
+FROM "OBH_TEST"."VT_DM_TRANSLATE" "VT_DM_TRANSLATE"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DM_TREATM_CATEGOTY" Association="Self.FK_DM_TREATM_CATEGOTY">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_TREATM" EntitySet="DM_TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_TREATM_TREATM_TYPE" Association="Self.FK_DM_TREATM_TREATM_TYPE">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_TREATM" EntitySet="DM_TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TREATM_PARAM" Association="Self.FK_TREATM_PARAM">
+            <End Role="TREATM" EntitySet="TREATM" />
+            <End Role="TREATM_PARAM" EntitySet="TREATM_PARAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TREATM_PARAM_PREV" Association="Self.FK_TREATM_PARAM_PREV">
+            <End Role="TREATM_PARAM" EntitySet="TREATM_PARAM" />
+            <End Role="TREATM_PARAM1" EntitySet="TREATM_PARAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRTM_DSRT_TRTTYID" Association="Self.FK_TRTM_DSRT_TRTTYID">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRTM_DSRT_TYID1" Association="Self.FK_TRTM_DSRT_TYID1">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRTM_DSRT_TYID2" Association="Self.FK_TRTM_DSRT_TYID2">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007019" Association="Self.SYS_C007019">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_SUPER_TYP1" EntitySet="DM_SUPER_TYP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ToDoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DM_LANGUAGE">
+          <Key>
+            <PropertyRef Name="LANGUAGE_ID" />
+          </Key>
+          <Property Name="LANGUAGE_ID" Type="Int64" Nullable="false" />
+          <Property Name="LANGUAGE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGE_TYP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="LANGUAGE_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="W_COUNTRY_TRICODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ISO639_3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ISO639_2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ISO639_1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="HUN_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ENG_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+          <Property Name="FLAG_ID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="DM_SUPER_TYP">
+          <Key>
+            <PropertyRef Name="SUPER_TYP_ID" />
+          </Key>
+          <Property Name="SUPER_TYP_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" />
+          <Property Name="GROUND_LEVEL_ID" Type="Int64" Nullable="false" />
+          <Property Name="SUPER_TYPE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUPER_TYPE_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPER_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SLEVEL" Type="Int16" />
+          <Property Name="WK_CLASS_ID" Type="Int64" />
+          <Property Name="FROM_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TO_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USE_COMMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="ROLL_TYPE" Type="Int16" />
+          <Property Name="WIRED_TO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_SUPER_TYP1" Relationship="ToDoModel.SYS_C0072046" FromRole="DM_SUPER_TYP" ToRole="DM_SUPER_TYP1" />
+          <NavigationProperty Name="DM_SUPER_TYP2" Relationship="ToDoModel.SYS_C0072046" FromRole="DM_SUPER_TYP1" ToRole="DM_SUPER_TYP" />
+          <NavigationProperty Name="DM_TREATM" Relationship="ToDoModel.FK_DM_TREATM_CATEGOTY" FromRole="DM_SUPER_TYP" ToRole="DM_TREATM" />
+          <NavigationProperty Name="DM_TREATM1" Relationship="ToDoModel.FK_DM_TREATM_TREATM_TYPE" FromRole="DM_SUPER_TYP" ToRole="DM_TREATM" />
+          <NavigationProperty Name="TREATMs" Relationship="ToDoModel.FK_TRTM_DSRT_TRTTYID" FromRole="DM_SUPER_TYP" ToRole="TREATM" />
+          <NavigationProperty Name="TREATMs1" Relationship="ToDoModel.FK_TRTM_DSRT_TYID1" FromRole="DM_SUPER_TYP" ToRole="TREATM" />
+          <NavigationProperty Name="TREATMs2" Relationship="ToDoModel.FK_TRTM_DSRT_TYID2" FromRole="DM_SUPER_TYP" ToRole="TREATM" />
+        </EntityType>
+        <EntityType Name="DM_TEXT">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="Int64" Nullable="false" />
+          <Property Name="TEXT_ID" Type="Int64" />
+          <Property Name="LANGUAGE_ID" Type="Int64" />
+          <Property Name="TRANSL_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HELP_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRINT_TEXT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" />
+          <Property Name="HUN_NAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="W_FORM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="W_LANGUAGE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_ERROR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="TRANSLATE_ID" />
+          </Key>
+          <Property Name="TRANSLATE_ID" Type="Int64" Nullable="false" />
+          <Property Name="TEXT_ID" Type="Int64" />
+          <Property Name="DISPLAY_TYPE_ID" Type="Int64" />
+          <Property Name="TBL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_COL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_PK_ID" Type="Int64" />
+          <Property Name="TBL_ROWS" Type="Int64" />
+          <Property Name="APEX_VARIABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_TYPE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_TYPE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_GROUP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="W_REFERENCE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_DISPLAY_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="W_APEX_VARIABLE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="EsToDoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DM_LANGUAGE" EntityType="Self.DM_LANGUAGE" />
+          <EntitySet Name="DM_SUPER_TYP" EntityType="Self.DM_SUPER_TYP" />
+          <EntitySet Name="DM_TEXT" EntityType="Self.DM_TEXT" />
+          <EntitySet Name="DM_TRANSLATE" EntityType="Self.DM_TRANSLATE" />
+          <AssociationSet Name="SYS_C0072046" Association="ToDoModel.SYS_C0072046">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_SUPER_TYP1" EntitySet="DM_SUPER_TYP" />
+          </AssociationSet>
+          <EntitySet Name="DM_TREATM" EntityType="ToDoModel.DM_TREATM" />
+          <AssociationSet Name="FK_DM_TREATM_CATEGOTY" Association="ToDoModel.FK_DM_TREATM_CATEGOTY">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_TREATM" EntitySet="DM_TREATM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_TREATM_TREATM_TYPE" Association="ToDoModel.FK_DM_TREATM_TREATM_TYPE">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="DM_TREATM" EntitySet="DM_TREATM" />
+          </AssociationSet>
+          <EntitySet Name="TREATMs" EntityType="ToDoModel.TREATM" />
+          <EntitySet Name="TREATM_PARAM" EntityType="ToDoModel.TREATM_PARAM" />
+          <EntitySet Name="TREATM_REL" EntityType="ToDoModel.TREATM_REL" />
+          <AssociationSet Name="FK_TRTM_DSRT_TRTTYID" Association="ToDoModel.FK_TRTM_DSRT_TRTTYID">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRTM_DSRT_TYID1" Association="ToDoModel.FK_TRTM_DSRT_TYID1">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRTM_DSRT_TYID2" Association="ToDoModel.FK_TRTM_DSRT_TYID2">
+            <End Role="DM_SUPER_TYP" EntitySet="DM_SUPER_TYP" />
+            <End Role="TREATM" EntitySet="TREATMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TREATM_PARAM" Association="ToDoModel.FK_TREATM_PARAM">
+            <End Role="TREATM" EntitySet="TREATMs" />
+            <End Role="TREATM_PARAM" EntitySet="TREATM_PARAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TREATM_PARAM_PREV" Association="ToDoModel.FK_TREATM_PARAM_PREV">
+            <End Role="TREATM_PARAM" EntitySet="TREATM_PARAM" />
+            <End Role="TREATM_PARAM1" EntitySet="TREATM_PARAM" />
+          </AssociationSet>
+          <EntitySet Name="VT_DM_TRANSLATE" EntityType="ToDoModel.VT_DM_TRANSLATE" />
+        </EntityContainer>
+        <Association Name="SYS_C0072046">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_SUPER_TYP1">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DM_TREATM">
+          <Key>
+            <PropertyRef Name="DM_TREATM_ID" />
+          </Key>
+          <Property Name="DM_TREATM_ID" Type="Int64" Nullable="false" />
+          <Property Name="TREATM_TYPE_ID" Type="Int64" />
+          <Property Name="TREATM_CATEGORY_ID" Type="Int64" />
+          <Property Name="TREATM_GROUP_ID" Type="Int64" />
+          <Property Name="TREATM_PARAM_TYPE_ID" Type="Int64" />
+          <Property Name="MANDATORY" Type="Int16" />
+          <Property Name="MULTIPLY" Type="Int16" />
+          <Property Name="TABLE_ROLL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ROLL_TYPE" Type="Int16" />
+          <Property Name="ORDER_NO" Type="Int16" />
+          <Property Name="VALUE_GROUP_ID" Type="Int64" />
+          <Property Name="VALUE_GROUP_TABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALUE_ALLOWED" Type="Int16" />
+          <Property Name="DIMENSION_GROUP_ID" Type="Int64" />
+          <Property Name="DIMENSION_ALLOWED" Type="Int16" />
+          <Property Name="USER_TYPE1_GROUP" Type="Int64" />
+          <Property Name="USER_TYPE2_GROUP" Type="Int64" />
+          <Property Name="SUBJ_GROUP_ID" Type="Int64" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VISIBLE" Type="Int16" />
+          <Property Name="VALUE_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_SUPER_TYP" Relationship="ToDoModel.FK_DM_TREATM_CATEGOTY" FromRole="DM_TREATM" ToRole="DM_SUPER_TYP" />
+          <NavigationProperty Name="DM_SUPER_TYP1" Relationship="ToDoModel.FK_DM_TREATM_TREATM_TYPE" FromRole="DM_TREATM" ToRole="DM_SUPER_TYP" />
+        </EntityType>
+        <Association Name="FK_DM_TREATM_CATEGOTY">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.DM_TREATM" Role="DM_TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_TREATM">
+              <PropertyRef Name="TREATM_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_TREATM_TREATM_TYPE">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.DM_TREATM" Role="DM_TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="DM_TREATM">
+              <PropertyRef Name="TREATM_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TREATM">
+          <Key>
+            <PropertyRef Name="TREATM_ID" />
+          </Key>
+          <Property Name="TREATM_ID" Type="Int64" Nullable="false" />
+          <Property Name="TREATM_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TREATM_GROUP_ID" Type="Int64" />
+          <Property Name="TREATM_TYPE_ID" Type="Int64" />
+          <Property Name="STATUS_ID" Type="Int64" />
+          <Property Name="TREATM_CATEGORY_ID" Type="Int64" />
+          <Property Name="MM_ID" Type="Int64" />
+          <Property Name="TIME_START" Type="DateTime" />
+          <Property Name="TIME_END" Type="DateTime" />
+          <Property Name="SUBJ1_ID" Type="Int64" />
+          <Property Name="TYPE1_ID" Type="Int64" />
+          <Property Name="SUBJ2_ID" Type="Int64" />
+          <Property Name="TYPE2_ID" Type="Int64" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TO_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TREATM_NAME_ID" Type="Int64" />
+          <NavigationProperty Name="DM_SUPER_TYP" Relationship="ToDoModel.FK_TRTM_DSRT_TRTTYID" FromRole="TREATM" ToRole="DM_SUPER_TYP" />
+          <NavigationProperty Name="DM_SUPER_TYP1" Relationship="ToDoModel.FK_TRTM_DSRT_TYID1" FromRole="TREATM" ToRole="DM_SUPER_TYP" />
+          <NavigationProperty Name="DM_SUPER_TYP2" Relationship="ToDoModel.FK_TRTM_DSRT_TYID2" FromRole="TREATM" ToRole="DM_SUPER_TYP" />
+          <NavigationProperty Name="TREATM_PARAM" Relationship="ToDoModel.FK_TREATM_PARAM" FromRole="TREATM" ToRole="TREATM_PARAM" />
+        </EntityType>
+        <EntityType Name="TREATM_PARAM">
+          <Key>
+            <PropertyRef Name="TREATM_PARAM_ID" />
+          </Key>
+          <Property Name="TREATM_PARAM_ID" Type="Int64" Nullable="false" />
+          <Property Name="TREATM_PARAM1_ID" Type="Int64" />
+          <Property Name="TREATM_ID" Type="Int64" Nullable="false" />
+          <Property Name="EPI_ID" Type="Int64" Nullable="false" />
+          <Property Name="SUBJ_ID" Type="Int64" />
+          <Property Name="SUBJ_TYPE_ID" Type="Int64" />
+          <Property Name="PARAM_TYPE_ID" Type="Int64" Nullable="false" />
+          <Property Name="VALUE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT_TYPE_ID" Type="Int64" />
+          <Property Name="VALUE_TYPE_ID" Type="Int64" />
+          <Property Name="ORDER_NO" Type="Int16" />
+          <Property Name="MM_ID" Type="Int64" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="FROM_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="TO_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD_TYPE_ID" Type="Int64" />
+          <Property Name="ROLL_TYPE" Type="Int16" />
+          <NavigationProperty Name="TREATM" Relationship="ToDoModel.FK_TREATM_PARAM" FromRole="TREATM_PARAM" ToRole="TREATM" />
+          <NavigationProperty Name="TREATM_PARAM1" Relationship="ToDoModel.FK_TREATM_PARAM_PREV" FromRole="TREATM_PARAM" ToRole="TREATM_PARAM1" />
+          <NavigationProperty Name="TREATM_PARAM2" Relationship="ToDoModel.FK_TREATM_PARAM_PREV" FromRole="TREATM_PARAM1" ToRole="TREATM_PARAM" />
+        </EntityType>
+        <EntityType Name="TREATM_REL">
+          <Key>
+            <PropertyRef Name="TREATM_REL_ID" />
+          </Key>
+          <Property Name="TREATM_REL_ID" Type="Int64" Nullable="false" />
+          <Property Name="TREATM_ID1" Type="Int64" Nullable="false" />
+          <Property Name="TREATM_ID2" Type="Int64" Nullable="false" />
+          <Property Name="KOD1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KOD2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REL_TYPE_ID" Type="Int64" Nullable="false" />
+          <Property Name="EXTRA_NEXT_STEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPI_ID" Type="Int64" />
+          <Property Name="ORDER_NO" Type="Int16" />
+          <Property Name="TIME_START" Type="DateTime" />
+          <Property Name="TIME_END" Type="DateTime" />
+          <Property Name="MM_ID" Type="Int64" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="GO_ORDER_NO" Type="Int16" />
+        </EntityType>
+        <Association Name="FK_TRTM_DSRT_TRTTYID">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.TREATM" Role="TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TREATM_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRTM_DSRT_TYID1">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.TREATM" Role="TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TYPE1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRTM_DSRT_TYID2">
+          <End Type="ToDoModel.DM_SUPER_TYP" Role="DM_SUPER_TYP" Multiplicity="0..1" />
+          <End Type="ToDoModel.TREATM" Role="TREATM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_SUPER_TYP">
+              <PropertyRef Name="SUPER_TYP_ID" />
+            </Principal>
+            <Dependent Role="TREATM">
+              <PropertyRef Name="TYPE2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TREATM_PARAM">
+          <End Type="ToDoModel.TREATM" Role="TREATM" Multiplicity="1" />
+          <End Type="ToDoModel.TREATM_PARAM" Role="TREATM_PARAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TREATM">
+              <PropertyRef Name="TREATM_ID" />
+            </Principal>
+            <Dependent Role="TREATM_PARAM">
+              <PropertyRef Name="TREATM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TREATM_PARAM_PREV">
+          <End Type="ToDoModel.TREATM_PARAM" Role="TREATM_PARAM" Multiplicity="0..1" />
+          <End Type="ToDoModel.TREATM_PARAM" Role="TREATM_PARAM1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TREATM_PARAM">
+              <PropertyRef Name="TREATM_PARAM_ID" />
+            </Principal>
+            <Dependent Role="TREATM_PARAM1">
+              <PropertyRef Name="TREATM_PARAM1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VT_DM_TRANSLATE">
+          <Key>
+            <PropertyRef Name="DM_TEXT_ID" />
+            <PropertyRef Name="TRANSLATE_ID" />
+          </Key>
+          <Property Name="DM_TEXT_ID" Type="Int64" Nullable="false" />
+          <Property Name="TEXT_ID" Type="Int64" />
+          <Property Name="LANGUAGE_ID" Type="Int64" />
+          <Property Name="TRANSL_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HELP_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TEXT_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRINT_TEXT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TEXT_FROM_DAT" Type="DateTime" />
+          <Property Name="TEXT_TO_DATE" Type="DateTime" />
+          <Property Name="HUN_NAMES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCE_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRANSLATE_ID" Type="Int64" Nullable="false" />
+          <Property Name="DISPLAY_TYPE_ID" Type="Int64" />
+          <Property Name="TBL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_COL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TBL_PK_ID" Type="Int64" />
+          <Property Name="TBL_ROWS" Type="Int64" />
+          <Property Name="APEX_VARIABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="APEX_VARIABLE_PAGE" Type="Int32" />
+          <Property Name="PARAM_TYPE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_TYPE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PARAM_VALUE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRANSLATE_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRANSLATE_FROM_DATE" Type="DateTime" />
+          <Property Name="TRANSLATE_TO_DATE" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ToDoModelStoreContainer" CdmEntityContainer="EsToDoEntities">
+          <EntitySetMapping Name="DM_LANGUAGE">
+            <EntityTypeMapping TypeName="ToDoModel.DM_LANGUAGE">
+              <MappingFragment StoreEntitySet="DM_LANGUAGE">
+                <ScalarProperty Name="LANGUAGE_ID" ColumnName="LANGUAGE_ID" />
+                <ScalarProperty Name="LANGUAGE_NAME" ColumnName="LANGUAGE_NAME" />
+                <ScalarProperty Name="LANGUAGE_TYP" ColumnName="LANGUAGE_TYP" />
+                <ScalarProperty Name="RL" ColumnName="RL" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
+                <ScalarProperty Name="W_COUNTRY_TRICODE" ColumnName="W_COUNTRY_TRICODE" />
+                <ScalarProperty Name="ISO639_3" ColumnName="ISO639_3" />
+                <ScalarProperty Name="ISO639_2" ColumnName="ISO639_2" />
+                <ScalarProperty Name="ISO639_1" ColumnName="ISO639_1" />
+                <ScalarProperty Name="HUN_NAME" ColumnName="HUN_NAME" />
+                <ScalarProperty Name="ENG_NAME" ColumnName="ENG_NAME" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="FLAG_ID" ColumnName="FLAG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_SUPER_TYP">
+            <EntityTypeMapping TypeName="ToDoModel.DM_SUPER_TYP">
+              <MappingFragment StoreEntitySet="DM_SUPER_TYP">
+                <ScalarProperty Name="SUPER_TYP_ID" ColumnName="SUPER_TYP_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="GROUND_LEVEL_ID" ColumnName="GROUND_LEVEL_ID" />
+                <ScalarProperty Name="SUPER_TYPE_NAME" ColumnName="SUPER_TYPE_NAME" />
+                <ScalarProperty Name="SUPER_TYPE_SHORT_NAME" ColumnName="SUPER_TYPE_SHORT_NAME" />
+                <ScalarProperty Name="SUPER_GROUP_NAME" ColumnName="SUPER_GROUP_NAME" />
+                <ScalarProperty Name="SLEVEL" ColumnName="SLEVEL" />
+                <ScalarProperty Name="WK_CLASS_ID" ColumnName="WK_CLASS_ID" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="USE_COMMENT" ColumnName="USE_COMMENT" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+                <ScalarProperty Name="WIRED_TO" ColumnName="WIRED_TO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TEXT">
+            <EntityTypeMapping TypeName="ToDoModel.DM_TEXT">
+              <MappingFragment StoreEntitySet="DM_TEXT">
+                <ScalarProperty Name="DM_TEXT_ID" ColumnName="DM_TEXT_ID" />
+                <ScalarProperty Name="TEXT_ID" ColumnName="TEXT_ID" />
+                <ScalarProperty Name="LANGUAGE_ID" ColumnName="LANGUAGE_ID" />
+                <ScalarProperty Name="TRANSL_TYPE" ColumnName="TRANSL_TYPE" />
+                <ScalarProperty Name="CNAMES" ColumnName="CNAMES" />
+                <ScalarProperty Name="HELP_TEXT" ColumnName="HELP_TEXT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PRINT_TEXT" ColumnName="PRINT_TEXT" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="HUN_NAMES" ColumnName="HUN_NAMES" />
+                <ScalarProperty Name="W_FORM" ColumnName="W_FORM" />
+                <ScalarProperty Name="W_LANGUAGE_CODE" ColumnName="W_LANGUAGE_CODE" />
+                <ScalarProperty Name="REFERENCE_CODE" ColumnName="REFERENCE_CODE" />
+                <ScalarProperty Name="W_ERROR" ColumnName="W_ERROR" />
+                <ScalarProperty Name="W_GROUP_NAME" ColumnName="W_GROUP_NAME" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TRANSLATE">
+            <EntityTypeMapping TypeName="ToDoModel.DM_TRANSLATE">
+              <MappingFragment StoreEntitySet="DM_TRANSLATE">
+                <ScalarProperty Name="TRANSLATE_ID" ColumnName="TRANSLATE_ID" />
+                <ScalarProperty Name="TEXT_ID" ColumnName="TEXT_ID" />
+                <ScalarProperty Name="DISPLAY_TYPE_ID" ColumnName="DISPLAY_TYPE_ID" />
+                <ScalarProperty Name="TBL_NAME" ColumnName="TBL_NAME" />
+                <ScalarProperty Name="TBL_COL_NAME" ColumnName="TBL_COL_NAME" />
+                <ScalarProperty Name="TBL_PK_ID" ColumnName="TBL_PK_ID" />
+                <ScalarProperty Name="TBL_ROWS" ColumnName="TBL_ROWS" />
+                <ScalarProperty Name="APEX_VARIABLE" ColumnName="APEX_VARIABLE" />
+                <ScalarProperty Name="PARAM_TYPE1" ColumnName="PARAM_TYPE1" />
+                <ScalarProperty Name="PARAM_VALUE1" ColumnName="PARAM_VALUE1" />
+                <ScalarProperty Name="PARAM_TYPE2" ColumnName="PARAM_TYPE2" />
+                <ScalarProperty Name="PARAM_VALUE2" ColumnName="PARAM_VALUE2" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="W_GROUP_NAME" ColumnName="W_GROUP_NAME" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="W_REFERENCE_CODE" ColumnName="W_REFERENCE_CODE" />
+                <ScalarProperty Name="W_DISPLAY_TYPE" ColumnName="W_DISPLAY_TYPE" />
+                <ScalarProperty Name="W_APEX_VARIABLE" ColumnName="W_APEX_VARIABLE" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="APEX_PAGE" ColumnName="APEX_PAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TREATM">
+            <EntityTypeMapping TypeName="ToDoModel.DM_TREATM">
+              <MappingFragment StoreEntitySet="DM_TREATM">
+                <ScalarProperty Name="VALUE_TYPE" ColumnName="VALUE_TYPE" />
+                <ScalarProperty Name="PARAM_VISIBLE" ColumnName="PARAM_VISIBLE" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="SUBJ_GROUP_ID" ColumnName="SUBJ_GROUP_ID" />
+                <ScalarProperty Name="USER_TYPE2_GROUP" ColumnName="USER_TYPE2_GROUP" />
+                <ScalarProperty Name="USER_TYPE1_GROUP" ColumnName="USER_TYPE1_GROUP" />
+                <ScalarProperty Name="DIMENSION_ALLOWED" ColumnName="DIMENSION_ALLOWED" />
+                <ScalarProperty Name="DIMENSION_GROUP_ID" ColumnName="DIMENSION_GROUP_ID" />
+                <ScalarProperty Name="VALUE_ALLOWED" ColumnName="VALUE_ALLOWED" />
+                <ScalarProperty Name="VALUE_GROUP_TABLE" ColumnName="VALUE_GROUP_TABLE" />
+                <ScalarProperty Name="VALUE_GROUP_ID" ColumnName="VALUE_GROUP_ID" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+                <ScalarProperty Name="TABLE_ROLL" ColumnName="TABLE_ROLL" />
+                <ScalarProperty Name="MULTIPLY" ColumnName="MULTIPLY" />
+                <ScalarProperty Name="MANDATORY" ColumnName="MANDATORY" />
+                <ScalarProperty Name="TREATM_PARAM_TYPE_ID" ColumnName="TREATM_PARAM_TYPE_ID" />
+                <ScalarProperty Name="TREATM_GROUP_ID" ColumnName="TREATM_GROUP_ID" />
+                <ScalarProperty Name="TREATM_CATEGORY_ID" ColumnName="TREATM_CATEGORY_ID" />
+                <ScalarProperty Name="TREATM_TYPE_ID" ColumnName="TREATM_TYPE_ID" />
+                <ScalarProperty Name="DM_TREATM_ID" ColumnName="DM_TREATM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TREATMs">
+            <EntityTypeMapping TypeName="ToDoModel.TREATM">
+              <MappingFragment StoreEntitySet="TREATM">
+                <ScalarProperty Name="TREATM_NAME_ID" ColumnName="TREATM_NAME_ID" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TYPE2_ID" ColumnName="TYPE2_ID" />
+                <ScalarProperty Name="SUBJ2_ID" ColumnName="SUBJ2_ID" />
+                <ScalarProperty Name="TYPE1_ID" ColumnName="TYPE1_ID" />
+                <ScalarProperty Name="SUBJ1_ID" ColumnName="SUBJ1_ID" />
+                <ScalarProperty Name="TIME_END" ColumnName="TIME_END" />
+                <ScalarProperty Name="TIME_START" ColumnName="TIME_START" />
+                <ScalarProperty Name="MM_ID" ColumnName="MM_ID" />
+                <ScalarProperty Name="TREATM_CATEGORY_ID" ColumnName="TREATM_CATEGORY_ID" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="TREATM_TYPE_ID" ColumnName="TREATM_TYPE_ID" />
+                <ScalarProperty Name="TREATM_GROUP_ID" ColumnName="TREATM_GROUP_ID" />
+                <ScalarProperty Name="TREATM_NAME" ColumnName="TREATM_NAME" />
+                <ScalarProperty Name="TREATM_ID" ColumnName="TREATM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TREATM_PARAM">
+            <EntityTypeMapping TypeName="ToDoModel.TREATM_PARAM">
+              <MappingFragment StoreEntitySet="TREATM_PARAM">
+                <ScalarProperty Name="ROLL_TYPE" ColumnName="ROLL_TYPE" />
+                <ScalarProperty Name="FIELD_TYPE_ID" ColumnName="FIELD_TYPE_ID" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MM_ID" ColumnName="MM_ID" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="VALUE_TYPE_ID" ColumnName="VALUE_TYPE_ID" />
+                <ScalarProperty Name="UNIT_TYPE_ID" ColumnName="UNIT_TYPE_ID" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="PARAM_TYPE_ID" ColumnName="PARAM_TYPE_ID" />
+                <ScalarProperty Name="SUBJ_TYPE_ID" ColumnName="SUBJ_TYPE_ID" />
+                <ScalarProperty Name="SUBJ_ID" ColumnName="SUBJ_ID" />
+                <ScalarProperty Name="EPI_ID" ColumnName="EPI_ID" />
+                <ScalarProperty Name="TREATM_ID" ColumnName="TREATM_ID" />
+                <ScalarProperty Name="TREATM_PARAM1_ID" ColumnName="TREATM_PARAM1_ID" />
+                <ScalarProperty Name="TREATM_PARAM_ID" ColumnName="TREATM_PARAM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TREATM_REL">
+            <EntityTypeMapping TypeName="ToDoModel.TREATM_REL">
+              <MappingFragment StoreEntitySet="TREATM_REL">
+                <ScalarProperty Name="GO_ORDER_NO" ColumnName="GO_ORDER_NO" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+                <ScalarProperty Name="MM_ID" ColumnName="MM_ID" />
+                <ScalarProperty Name="TIME_END" ColumnName="TIME_END" />
+                <ScalarProperty Name="TIME_START" ColumnName="TIME_START" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="EPI_ID" ColumnName="EPI_ID" />
+                <ScalarProperty Name="EXTRA_NEXT_STEP" ColumnName="EXTRA_NEXT_STEP" />
+                <ScalarProperty Name="REL_TYPE_ID" ColumnName="REL_TYPE_ID" />
+                <ScalarProperty Name="KOD2" ColumnName="KOD2" />
+                <ScalarProperty Name="KOD1" ColumnName="KOD1" />
+                <ScalarProperty Name="TREATM_ID2" ColumnName="TREATM_ID2" />
+                <ScalarProperty Name="TREATM_ID1" ColumnName="TREATM_ID1" />
+                <ScalarProperty Name="TREATM_REL_ID" ColumnName="TREATM_REL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VT_DM_TRANSLATE">
+            <EntityTypeMapping TypeName="ToDoModel.VT_DM_TRANSLATE">
+              <MappingFragment StoreEntitySet="VT_DM_TRANSLATE">
+                <ScalarProperty Name="TRANSLATE_TO_DATE" ColumnName="TRANSLATE_TO_DATE" />
+                <ScalarProperty Name="TRANSLATE_FROM_DATE" ColumnName="TRANSLATE_FROM_DATE" />
+                <ScalarProperty Name="TRANSLATE_DESCRIPTION" ColumnName="TRANSLATE_DESCRIPTION" />
+                <ScalarProperty Name="PARAM_VALUE2" ColumnName="PARAM_VALUE2" />
+                <ScalarProperty Name="PARAM_TYPE2" ColumnName="PARAM_TYPE2" />
+                <ScalarProperty Name="PARAM_VALUE1" ColumnName="PARAM_VALUE1" />
+                <ScalarProperty Name="PARAM_TYPE1" ColumnName="PARAM_TYPE1" />
+                <ScalarProperty Name="APEX_VARIABLE_PAGE" ColumnName="APEX_VARIABLE_PAGE" />
+                <ScalarProperty Name="APEX_VARIABLE" ColumnName="APEX_VARIABLE" />
+                <ScalarProperty Name="TBL_ROWS" ColumnName="TBL_ROWS" />
+                <ScalarProperty Name="TBL_PK_ID" ColumnName="TBL_PK_ID" />
+                <ScalarProperty Name="TBL_COL_NAME" ColumnName="TBL_COL_NAME" />
+                <ScalarProperty Name="TBL_NAME" ColumnName="TBL_NAME" />
+                <ScalarProperty Name="DISPLAY_TYPE_ID" ColumnName="DISPLAY_TYPE_ID" />
+                <ScalarProperty Name="TRANSLATE_ID" ColumnName="TRANSLATE_ID" />
+                <ScalarProperty Name="REFERENCE_CODE" ColumnName="REFERENCE_CODE" />
+                <ScalarProperty Name="HUN_NAMES" ColumnName="HUN_NAMES" />
+                <ScalarProperty Name="TEXT_TO_DATE" ColumnName="TEXT_TO_DATE" />
+                <ScalarProperty Name="TEXT_FROM_DAT" ColumnName="TEXT_FROM_DAT" />
+                <ScalarProperty Name="PRINT_TEXT" ColumnName="PRINT_TEXT" />
+                <ScalarProperty Name="TEXT_DESCRIPTION" ColumnName="TEXT_DESCRIPTION" />
+                <ScalarProperty Name="HELP_TEXT" ColumnName="HELP_TEXT" />
+                <ScalarProperty Name="NAMES" ColumnName="NAMES" />
+                <ScalarProperty Name="TRANSL_TYPE" ColumnName="TRANSL_TYPE" />
+                <ScalarProperty Name="LANGUAGE_ID" ColumnName="LANGUAGE_ID" />
+                <ScalarProperty Name="TEXT_ID" ColumnName="TEXT_ID" />
+                <ScalarProperty Name="DM_TEXT_ID" ColumnName="DM_TEXT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
