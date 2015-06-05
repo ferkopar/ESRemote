@@ -1,0 +1,118 @@
+div.tableContainer {
+	clear: both;
+       /* height: 600px; */
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden
+}
+
+div.tableContainer table{
+       /* height: 600px; */
+       table-layout:fixed;
+}
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+thead.fixedHeader tr {
+	position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html>body thead.fixedHeader tr {
+	display: block;
+}
+
+thead.fixedHeader th, tbody.scrollContent td, tbody.scrollContent tr.normalRow td  {
+        padding: 2px 3px 3px 4px;
+}
+
+thead.fixedHeader:last-child {
+       border-bottom: 1px #aaa solid;
+}
+
+/* make the TH elements pretty */
+thead.fixedHeader th, thead.fixedHeader td{
+	background: #C96;
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+        border-bottom: 1px #aaa solid;       
+	text-align: center;
+        font-weight:bold;
+        background: #879cbd;
+        vertical-align: center;
+        color: black;
+        letter-spacing: 1;
+        background-image: linear-gradient(#fffffe,#eeeeef);
+        background-repeat: repeat-x;
+}
+
+thead.fixedHeader th:last-child { padding-right:24px } /* or whatever size */
+
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent {
+	display: block;
+	/* height: 400px; */
+	overflow-x: hidden;
+        overflow-y: visible;
+        border-bottom: 1px #aaa solid;     
+        width: 100% 
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent td, tbody.scrollContent tr.normalRow td {
+	
+	border-bottom: none;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+        text-align: right;
+}
+
+
+
+tbody.scrollContent td.value_error{
+      background: #C96;
+      color: #fff;
+      font-weight:bold;
+}
+
+
+tbody.scrollContent tr:last-child{
+     border-botton: 1px solid #DDD;
+}
+
+
+
+.gbb{
+      color:black;
+      background-color: grey;
+      font-weight:bold
+}
+.yrb{
+      color: red;
+      background-color: yellow;
+      font-weight:bold
+}
+.ybb{
+      color: black;
+      background-color: yellow;
+      font-weight:bold
+}
+.ybn{
+      color: black;
+      background-color:yellow;
+}
+.wbi{
+      color: black ;
+      background-color:white;
+      font-style:italic;
+}

@@ -1,0 +1,109 @@
+--------------------------------------------------------
+--  DDL for Package DM_XL_TAPI
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "DM_XL_TAPI" 
+IS
+type DM_XL_tapi_rec
+IS
+  record
+  (
+    CRU DM_XL.CRU%type ,
+    INC_TYPE_ID DM_XL.INC_TYPE_ID%type ,
+    MDU DM_XL.MDU%type ,
+    ORDER_REG DM_XL.ORDER_REG%type ,
+    PARAM_FDATE DM_XL.PARAM_FDATE%type ,
+    PARAM_UNIT DM_XL.PARAM_UNIT%type ,
+    ORDER_SIGN DM_XL.ORDER_SIGN%type ,
+    PARAM_TDATE DM_XL.PARAM_TDATE%type ,
+    MDD DM_XL.MDD%type ,
+    W_REL_TYPE_NAME DM_XL.W_REL_TYPE_NAME%type ,
+    W_LIST_TYPE_NAME DM_XL.W_LIST_TYPE_NAME%type ,
+    PARAM_TYPE_ID DM_XL.PARAM_TYPE_ID%type ,
+    PARAM_DATE_TYPE_ID DM_XL.PARAM_DATE_TYPE_ID%type ,
+    W_LEAD_TYPE_NAME DM_XL.W_LEAD_TYPE_NAME%type ,
+    LEAD_TYPE_ID DM_XL.LEAD_TYPE_ID%type ,
+    DESCRIPTION DM_XL.DESCRIPTION%type ,
+    PARAM_D2VALUE DM_XL.PARAM_D2VALUE%type ,
+    PARAM_ADATE_TYPE_ID DM_XL.PARAM_ADATE_TYPE_ID%type ,
+    DATA_OWNER_ID DM_XL.DATA_OWNER_ID%type ,
+    ORDER_NO DM_XL.ORDER_NO%type ,
+    W_PARAM_DATE_TYPE_NAME DM_XL.W_PARAM_DATE_TYPE_NAME%type ,
+    PARAM_UNIT_ID DM_XL.PARAM_UNIT_ID%type ,
+    W_PARAM_TYPE_NAME DM_XL.W_PARAM_TYPE_NAME%type ,
+    REL_TYPE_ID DM_XL.REL_TYPE_ID%type ,
+    CRD DM_XL.CRD%type ,
+    W_INC_TYPE_NAME DM_XL.W_INC_TYPE_NAME%type ,
+    MUTABLE DM_XL.MUTABLE%type ,
+    PRINT_TYPE DM_XL.PRINT_TYPE%type ,
+    W_PARAM_ADATE_TYPE_NAME DM_XL.W_PARAM_ADATE_TYPE_NAME%type ,
+    SHEET_NAME DM_XL.SHEET_NAME%type ,
+    PARAM_D1VALUE DM_XL.PARAM_D1VALUE%type ,
+    DM_XL_ID DM_XL.DM_XL_ID%type ,
+    LIST_TYPE_ID DM_XL.LIST_TYPE_ID%type );
+type DM_XL_tapi_tab
+IS
+  TABLE OF DM_XL_tapi_rec;
+  -- insert
+  PROCEDURE ins(
+    p_INC_TYPE_ID             IN DM_XL.INC_TYPE_ID%type DEFAULT NULL ,
+    p_ORDER_REG               IN DM_XL.ORDER_REG%type DEFAULT NULL ,
+    p_PARAM_FDATE             IN DM_XL.PARAM_FDATE%type DEFAULT NULL ,
+    p_PARAM_UNIT              IN DM_XL.PARAM_UNIT%type DEFAULT NULL ,
+    p_ORDER_SIGN              IN DM_XL.ORDER_SIGN%type DEFAULT NULL ,
+    p_PARAM_TDATE             IN DM_XL.PARAM_TDATE%type DEFAULT NULL ,
+    p_PARAM_TYPE_ID           IN DM_XL.PARAM_TYPE_ID%type DEFAULT NULL ,
+    p_PARAM_DATE_TYPE_ID      IN DM_XL.PARAM_DATE_TYPE_ID%type DEFAULT NULL ,
+    p_LEAD_TYPE_ID            IN DM_XL.LEAD_TYPE_ID%type DEFAULT NULL ,
+    p_DESCRIPTION             IN DM_XL.DESCRIPTION%type DEFAULT NULL ,
+    p_PARAM_D2VALUE           IN DM_XL.PARAM_D2VALUE%type DEFAULT NULL ,
+    p_PARAM_ADATE_TYPE_ID     IN DM_XL.PARAM_ADATE_TYPE_ID%type DEFAULT NULL ,
+    p_DATA_OWNER_ID           IN DM_XL.DATA_OWNER_ID%type DEFAULT NULL ,
+    p_ORDER_NO                IN DM_XL.ORDER_NO%type DEFAULT NULL ,
+    p_PARAM_UNIT_ID           IN DM_XL.PARAM_UNIT_ID%type DEFAULT NULL ,
+    p_REL_TYPE_ID             IN DM_XL.REL_TYPE_ID%type DEFAULT NULL ,
+    p_MUTABLE                 IN DM_XL.MUTABLE%type DEFAULT NULL ,
+    p_PRINT_TYPE              IN DM_XL.PRINT_TYPE%type DEFAULT NULL ,
+    p_SHEET_NAME              IN DM_XL.SHEET_NAME%type DEFAULT NULL ,
+    p_PARAM_D1VALUE           IN DM_XL.PARAM_D1VALUE%type DEFAULT NULL ,
+    p_DM_XL_ID                IN DM_XL.DM_XL_ID%type ,
+    p_LIST_TYPE_ID            IN DM_XL.LIST_TYPE_ID%type DEFAULT NULL );
+  -- update
+  PROCEDURE upd(
+          p_INC_TYPE_ID             IN DM_XL.INC_TYPE_ID%type DEFAULT NULL ,    
+    p_ORDER_REG               IN DM_XL.ORDER_REG%type DEFAULT NULL ,
+    p_PARAM_FDATE             IN DM_XL.PARAM_FDATE%type DEFAULT NULL ,
+    p_PARAM_UNIT              IN DM_XL.PARAM_UNIT%type DEFAULT NULL ,
+    p_ORDER_SIGN              IN DM_XL.ORDER_SIGN%type DEFAULT NULL ,
+    p_PARAM_TDATE             IN DM_XL.PARAM_TDATE%type DEFAULT NULL ,
+    p_PARAM_TYPE_ID           IN DM_XL.PARAM_TYPE_ID%type DEFAULT NULL ,
+    p_PARAM_DATE_TYPE_ID      IN DM_XL.PARAM_DATE_TYPE_ID%type DEFAULT NULL ,
+    p_LEAD_TYPE_ID            IN DM_XL.LEAD_TYPE_ID%type DEFAULT NULL ,
+    p_DESCRIPTION             IN DM_XL.DESCRIPTION%type DEFAULT NULL ,
+    p_PARAM_D2VALUE           IN DM_XL.PARAM_D2VALUE%type DEFAULT NULL ,
+    p_PARAM_ADATE_TYPE_ID     IN DM_XL.PARAM_ADATE_TYPE_ID%type DEFAULT NULL ,
+    p_DATA_OWNER_ID           IN DM_XL.DATA_OWNER_ID%type DEFAULT NULL ,
+    p_ORDER_NO                IN DM_XL.ORDER_NO%type DEFAULT NULL ,
+    p_PARAM_UNIT_ID           IN DM_XL.PARAM_UNIT_ID%type DEFAULT NULL ,
+    p_REL_TYPE_ID             IN DM_XL.REL_TYPE_ID%type DEFAULT NULL ,
+    p_MUTABLE                 IN DM_XL.MUTABLE%type DEFAULT NULL ,
+    p_PRINT_TYPE              IN DM_XL.PRINT_TYPE%type DEFAULT NULL ,
+    p_SHEET_NAME              IN DM_XL.SHEET_NAME%type DEFAULT NULL ,
+    p_PARAM_D1VALUE           IN DM_XL.PARAM_D1VALUE%type DEFAULT NULL ,
+    p_DM_XL_ID                IN DM_XL.DM_XL_ID%type ,
+    p_LIST_TYPE_ID            IN DM_XL.LIST_TYPE_ID%type DEFAULT NULL
+ );
+  -- delete
+  PROCEDURE del(
+      p_DM_XL_ID IN DM_XL.DM_XL_ID%type );
+
+  PROCEDURE add(p_DM_XL_ID_SRC IN DM_XL.DM_XL_ID%type,
+                p_DM_XL_ID_DST IN DM_XL.DM_XL_ID%type  DEFAULT NULL, 
+                p_LIST_TYPE_ID IN DM_XL.LIST_TYPE_ID%type  DEFAULT NULL); 
+
+  FUNCTION max_order_no(p_list_type_id DM_XL.LIST_TYPE_ID%TYPE,
+                        p_rel_type_id  DM_XL.REL_TYPE_ID%TYPE) 
+    return DM_XL.ORDER_NO%TYPE;
+END DM_XL_tapi;
+
+/

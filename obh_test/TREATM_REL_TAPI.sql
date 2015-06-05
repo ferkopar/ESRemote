@@ -1,0 +1,77 @@
+--------------------------------------------------------
+--  DDL for Package TREATM_REL_TAPI
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "TREATM_REL_TAPI" 
+IS
+type TREATM_REL_tapi_rec
+IS
+  record
+  (
+    TIME_START TREATM_REL.TIME_START%type ,
+    TREATM_ID2 TREATM_REL.TREATM_ID2%type ,
+    CRU TREATM_REL.CRU%type ,
+    TREATM_ID1 TREATM_REL.TREATM_ID1%type ,
+    TO_DATE TREATM_REL.TO_DATE%type ,
+    STATUS_ID TREATM_REL.STATUS_ID%type ,
+    DESCRIPTION TREATM_REL.DESCRIPTION%type ,
+    MDU TREATM_REL.MDU%type ,
+    ORDER_NO TREATM_REL.ORDER_NO%type ,
+    MM_ID TREATM_REL.MM_ID%type ,
+    FROM_DATE TREATM_REL.FROM_DATE%type ,
+    TREATM_REL_ID TREATM_REL.TREATM_REL_ID%type ,
+    REL_TYPE_ID TREATM_REL.REL_TYPE_ID%type ,
+    CRD TREATM_REL.CRD%type ,
+    MDD TREATM_REL.MDD%type ,
+    TIME_END TREATM_REL.TIME_END%type ,
+    EPI_ID TREATM_REL.EPI_ID%type );
+type TREATM_REL_tapi_tab
+IS
+  TABLE OF TREATM_REL_tapi_rec;
+  -- insert
+  PROCEDURE ins(
+      p_TIME_START    IN TREATM_REL.TIME_START%type DEFAULT NULL ,
+      p_TREATM_ID2    IN TREATM_REL.TREATM_ID2%type ,
+      p_CRU           IN TREATM_REL.CRU%type DEFAULT NULL ,
+      p_TREATM_ID1    IN TREATM_REL.TREATM_ID1%type ,
+      p_TO_DATE       IN TREATM_REL.TO_DATE%type DEFAULT NULL ,
+      p_STATUS_ID     IN TREATM_REL.STATUS_ID%type DEFAULT NULL ,
+      p_DESCRIPTION   IN TREATM_REL.DESCRIPTION%type DEFAULT NULL ,
+      p_MDU           IN TREATM_REL.MDU%type DEFAULT NULL ,
+      p_ORDER_NO      IN TREATM_REL.ORDER_NO%type DEFAULT NULL ,
+      p_MM_ID         IN TREATM_REL.MM_ID%type DEFAULT NULL ,
+      p_FROM_DATE     IN TREATM_REL.FROM_DATE%type DEFAULT NULL ,
+      p_TREATM_REL_ID IN TREATM_REL.TREATM_REL_ID%type DEFAULT NULL,
+      p_REL_TYPE_ID   IN TREATM_REL.REL_TYPE_ID%type ,
+      p_CRD           IN TREATM_REL.CRD%type DEFAULT NULL ,
+      p_MDD           IN TREATM_REL.MDD%type DEFAULT NULL ,
+      p_TIME_END      IN TREATM_REL.TIME_END%type DEFAULT NULL ,
+      p_EPI_ID        IN TREATM_REL.EPI_ID%type DEFAULT NULL );
+  -- update
+  PROCEDURE upd(
+      p_TIME_START    IN TREATM_REL.TIME_START%type DEFAULT NULL ,
+      p_TREATM_ID2    IN TREATM_REL.TREATM_ID2%type ,
+      p_CRU           IN TREATM_REL.CRU%type DEFAULT NULL ,
+      p_TREATM_ID1    IN TREATM_REL.TREATM_ID1%type ,
+      p_TO_DATE       IN TREATM_REL.TO_DATE%type DEFAULT NULL ,
+      p_STATUS_ID     IN TREATM_REL.STATUS_ID%type DEFAULT NULL ,
+      p_DESCRIPTION   IN TREATM_REL.DESCRIPTION%type DEFAULT NULL ,
+      p_MDU           IN TREATM_REL.MDU%type DEFAULT NULL ,
+      p_ORDER_NO      IN TREATM_REL.ORDER_NO%type DEFAULT NULL ,
+      p_MM_ID         IN TREATM_REL.MM_ID%type DEFAULT NULL ,
+      p_FROM_DATE     IN TREATM_REL.FROM_DATE%type DEFAULT NULL ,
+      p_TREATM_REL_ID IN TREATM_REL.TREATM_REL_ID%type ,
+      p_REL_TYPE_ID   IN TREATM_REL.REL_TYPE_ID%type ,
+      p_CRD           IN TREATM_REL.CRD%type DEFAULT NULL ,
+      p_MDD           IN TREATM_REL.MDD%type DEFAULT NULL ,
+      p_TIME_END      IN TREATM_REL.TIME_END%type DEFAULT NULL ,
+      p_EPI_ID        IN TREATM_REL.EPI_ID%type DEFAULT NULL );
+  -- delete
+  PROCEDURE del(
+      p_TREATM_ID1 IN TREATM_REL.TREATM_ID1%type ,
+      p_TREATM_ID2 IN TREATM_REL.TREATM_ID2%type );
+
+  PROCEDURE invalidate (p_rel_to_invalidate IN treatm_rel.treatm_rel_id%TYPE);
+END TREATM_REL_tapi;
+
+/

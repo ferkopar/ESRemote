@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Index PK_ALERT_PARAM
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_ALERT_PARAM" ON "ALERT_PARAM" ("ALERT_PARAM_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  STORAGE( INITIAL 65536 NEXT 1048576 MAXEXTENTS 2147483645)
+  TABLESPACE "USERS" ;

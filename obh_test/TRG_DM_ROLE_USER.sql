@@ -1,0 +1,26 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_DM_ROLE_USER
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TRG_DM_ROLE_USER" 
+BEFORE INSERT OR UPDATE ON AMNIS.DM_ROLE_USER FOR EACH ROW
+BEGIN
+  IF INSERTING
+  THEN
+    IF
+      :NEW.ROLE_ID IS NULL
+    THEN
+      SELECT SEQ_BASE.NEXTVAL
+        INTO :NEW.ROLE_USER_ID
+        FROM DUAL;
+    END IF;
+    :NEW.CRD := SYSTIMESTAMP;		   --LÉTREHOZÁS IDŐPONTJA
+    :NEW.CRU := (NVL(V('APP_USER'), USER));       --APEX USER AKI LÉTREHOZZA A REKORDOT
+  ELSIF UPDATING
+  THEN
+    :NEW.MDD := SYSTIMESTAMP;	     --MÓDOSÍTÁS IDŐPONTJA
+    :NEW.MDU := (NVL(V('APP_USER'), USER));       --APEX USER AKI MÓDOSÍT
+  END IF;
+END;
+/
+ALTER TRIGGER "TRG_DM_ROLE_USER" ENABLE;

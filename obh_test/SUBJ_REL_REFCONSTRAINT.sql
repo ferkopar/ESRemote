@@ -1,0 +1,12 @@
+--------------------------------------------------------
+--  Ref Constraints for Table SUBJ_REL
+--------------------------------------------------------
+
+  ALTER TABLE "SUBJ_REL" ADD CONSTRAINT "FK_DMST_SURE" FOREIGN KEY ("STATUS_ID")
+	  REFERENCES "DM_SUPER_TYP" ("SUPER_TYP_ID") ENABLE;
+ 
+  ALTER TABLE "SUBJ_REL" ADD CONSTRAINT "FK_EPIS_SURE" FOREIGN KEY ("EPI_ID")
+	  REFERENCES "EPI" ("EPI_ID") ENABLE;
+ 
+  ALTER TABLE "SUBJ_REL" ADD CONSTRAINT "FK_SUREL_DMST" FOREIGN KEY ("REL_TYPE_ID")
+	  REFERENCES "DM_SUPER_TYP" ("SUPER_TYP_ID") ENABLE;
