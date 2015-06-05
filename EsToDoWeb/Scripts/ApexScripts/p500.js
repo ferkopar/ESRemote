@@ -39,15 +39,15 @@ function SaveChanges() {
     $("#DmXlTable tr.editable").each(function() {
         $this = $(this);
         IdField = $this.children( ".dmXlId" ).children();
-        if (IdField.val() == 0) {
-            alert("ujsor");
-            get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=setSession',500);
-            get.addParam("x01",$v("P500_DOC_ID") ); 
-            get.addParam("x02",$v("P500_SHEET") ); // subj_type_id
-            get.addParam("x03",$v("P500_REL_ID") ); // subj_id
-            gReturn = get.get();
-            get = null;
-        }
+
+        //set session values
+        var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=dummy',1);
+        get.add('P500_DOC_ID', $v("P500_DOC_ID"));
+        get.add('P500_SHEET', $v("P500_SHEET"));
+        get.add('P500_REL_ID', $v("P500_REL_ID"));
+        gReturn = get.get();
+        get = null;
+
         TypeIdField = $this.children( ".paramTypeId" ).children();
         UnitTypeField = $this.children( ".unitTypeId" ).children();
         OrderNoField = $this.children( ".orderNo" ).children();
