@@ -1,0 +1,37 @@
+﻿
+
+#Super_typ_tree {
+}
+
+    #Super_typ_tree ul {
+        list-style: none;
+    }
+
+        #Super_typ_tree ul li {
+            font-family: Georgia,serif,Times;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+            #Super_typ_tree ul li div.outer {
+                display: block;
+                width: 300px;
+                height: 35px;
+                background-color: #333;
+                border-left: 5px solid #222;
+                border-right: 5px solid #222;
+                padding-left: 10px;
+                text-decoration: none;
+                background: #FFF;
+                color: #024457;
+                border-radius: 3px;
+                border: 1px solid #167F92;
+            }
+
+             #Super_typ_tree ul li div.inner {
+                 float: left;
+                 padding-top: 8px
+
+            }
+
+                
