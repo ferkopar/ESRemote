@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoModell", "ToDoModell\To
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoModellView", "ToDoModellView\ToDoModellView.csproj", "{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsTodoTest", "EsTodoTest\EsTodoTest.csproj", "{35C7A7D7-6025-40DD-ABD1-E62415B958ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTry", "ToDoTry\ToDoTry.csproj", "{8C6954D9-D9BB-420C-A4F7-B50C78F27250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

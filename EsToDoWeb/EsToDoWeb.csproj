@@ -164,6 +164,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\responstable.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -173,6 +174,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ApexScripts\P3001.js" />
+    <Content Include="Scripts\ApexScripts\P3202.js" />
     <Content Include="Scripts\ApexScripts\P400.js" />
     <Content Include="Scripts\ApexScripts\p500.js" />
     <Content Include="Scripts\bootstrap.js" />

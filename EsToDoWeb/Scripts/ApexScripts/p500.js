@@ -12,7 +12,6 @@ function hideOrShow(sender) {
 }
    
     
-
 function GetTable(){
     
     get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=ParamTable',500);
