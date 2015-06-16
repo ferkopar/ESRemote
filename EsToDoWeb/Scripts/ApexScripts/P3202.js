@@ -1,40 +1,18 @@
-﻿jQuery.fn.tagName = function () {
-    return this.prop("tagName");
-};
+﻿
 
-jQuery.fn.checked = function () {
-    return this.prop("checked") ;
-};
 
-String.prototype.format = function () {
-    var s = this,
-        i = arguments.length;
+$(document).ready(function () {
+    $("#DmTreatmTable input").each(function () {
+        $(this).width( $(this).closest('td').width());
+    });
 
-    while (i--) {
-        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
-    }
-    return s;
-};
+    $("#DmTreatmTable select").each(function () {
+        $(this).width($(this).closest('td').width());
+    });
 
-function formatJsonKeyValuePairStr(key,value) {
-    
-    return  "\"{0}\":\"{1}\",\n".format(key,value);
-}
+});
 
-function formatJsonKeyValuePairNoCommaStr(key,value) {
-    
-    return  "\"{0}\":\"{1}\"\n".format(key,value);
-}
 
-function formatJsonKeyValuePair(key,value) {
-    
-    return  "\"{0}\":{1},\n".format(key,value);
-}
-
-function formatJsonKeyValuePairNoComma(key,value) {
-    
-    return  "\"{0}\":{1}\n".format(key,value);
-}
 
 
 function saveChanges() {
@@ -57,13 +35,13 @@ function saveChanges() {
         jsonTxt += formatJsonKeyValuePairNoComma("SUBJ_GROUP_ID",$this.children(".SUBJ_GROUP_ID").children().val());
         jsonTxt += "}\n";
         $s("P3202_TESZT", jsonTxt);
-       //alert(jsonTxt);
+        //alert(jsonTxt);
         get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',3202);
         get.addParam("x01",jsonTxt); 
         gReturn = get.get();
         get = null;
 
- //           alert(gReturn);
+        //           alert(gReturn);
 
 
     });

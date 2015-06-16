@@ -1,6 +1,4 @@
-﻿jQuery.fn.tagName = function () {
-    return this.prop("tagName");
-};
+﻿
 
 function openTree(p) {
     listItem = $(p).closest('li');
