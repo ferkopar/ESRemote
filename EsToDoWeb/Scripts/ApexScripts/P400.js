@@ -275,8 +275,6 @@ function valid(){
     return retVal;
 }
 
-function isEmpty(str) {
-    return (!str || 0 === str.length);
-}
+
 
 

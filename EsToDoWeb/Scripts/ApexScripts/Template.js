@@ -44,6 +44,8 @@ String.prototype.format = function () {
     return s;
 };
 
+
+
 jQuery.fn.center = function () {
     this.css("position", "absolute");
     this.css("top", (jQuery(window).height() - this.height()) / 2 + jQuery(window).scrollTop() + "px");
@@ -69,4 +71,8 @@ function formatJsonKeyValuePair(key, value) {
 function formatJsonKeyValuePairNoComma(key, value) {
 
     return "\"{0}\":{1}\n".format(key, value);
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
 }
