@@ -40,6 +40,15 @@ function setInputElementsWidth() {
     $("#TreatmTable select").each(function () {
         $(this).width($(this).closest('td').width());
     });
+
+    $("#ParameterTable input").each(function () {
+        $(this).width($(this).closest('td').width());
+    });
+
+    $("#ParameterTable select").each(function () {
+        $(this).width($(this).closest('td').width());
+    });
+
 }
 
 function selectListChanged(sender) {
@@ -85,39 +94,58 @@ function SaveChanges(){
     jsonTxt += formatJsonKeyValuePairStr("TO_DATE",$("#TO_DATE").children().val());
     jsonTxt += formatJsonKeyValuePair("TYPE1_ID",$("#TYPE1_ID").children().val());
     jsonTxt += formatJsonKeyValuePair("TYPE2_ID",$("#TYPE2_ID").children().val());
-    jsonTxt += '"TREATM_PARAMS" : [ "';
-    $("#ParameterTable>tbody tr").each(function() {
-        $this = $(this);
-        editField = $this.children( ".value" ).children();
-        dimField  = $this.children( ".dimension" ).children();
-        subjField = $this.children( ".alany" ).children();  
-        concreteSubjField = $this.children( ".konkretAlany" ).children(); 
-        //if( editField.hasClass( "dirty" ) || subjField.hasClass("dirty") ||concreteSubjField.hasClass("dirty")){
+
+    if ($("#ParameterTable>tbody tr").length > 0) {
+        jsonTxt += '"TREATM_PARAMS" : [';
+        $("#ParameterTable>tbody tr").each(function() {
+            $this = $(this);
+            editField = $this.children( ".value" ).children();
+            dimField  = $this.children( ".dimension" ).children();
+            subjField = $this.children( ".alany" ).children();  
+            concreteSubjField = $this.children( ".konkretAlany" ).children(); 
+            //if( editField.hasClass( "dirty" ) || subjField.hasClass("dirty") ||concreteSubjField.hasClass("dirty")){
             
             var inputValue = editField.val();
             var inputTagName = editField.prop("tagName");
             var paramId = $this.children( ".rowHead" ).children(".paramId").val();
             var inputParamType = $this.children( ".rowHead" ).children(".paramType").val();   
-            jsonTxt +=  "{\n";
+            jsonTxt +=  "{";
             jsonTxt +=  formatJsonKeyValuePair("TREATM_PARAM_ID",isEmpty(paramId)?0:paramId);
-            jsonTxt +=  formatJsonKeyValuePair("SUBJ_TYPE_ID",subjField.val());
-            jsonTxt +=  formatJsonKeyValuePair("SUBJ_ID",subjField.val());
-            jsonTxt +=  formatJsonKeyValuePairStr("VALUE",inputValue);
-            jsonTxt +=  formatJsonKeyValuePair("PARAM_TYPE",inputParamType);
-            jsonTxt +=  formatJsonKeyValuePairNoComma ("DIM_TYPE",dimField.val());
+            jsonTxt +=  formatJsonKeyValuePair("SUBJ_TYPE_ID",isEmpty(subjField.val())?0:subjField.val());
+            jsonTxt +=  formatJsonKeyValuePair("SUBJ_ID",isEmpty(concreteSubjField.val())?0:concreteSubjField);
+            jsonTxt +=  formatJsonKeyValuePairStr("VALUE",isEmpty(inputValue)?0:inputValue);
+            jsonTxt +=  formatJsonKeyValuePair("PARAM_TYPE",isEmpty(inputParamType)?0:inputParamType);
+            jsonTxt +=  formatJsonKeyValuePairNoComma ("DIM_TYPE",isEmpty(dimField.val())?0:dimField.val());
             jsonTxt += "}\n,";
 
-        //}
-    });
-    jsonTxt= jsonTxt.substring(0, jsonTxt.length - 1);
-    jsonTxt += "]\n";
+            //}
+        });
+        jsonTxt= jsonTxt.substring(0, jsonTxt.length - 1);
+        jsonTxt += "],\n";
+    }
+
+
+    if ($("#ChildTable>tbody tr").length > 2) {
+        jsonTxt += '"CHILDS" : [';
+        $("#ChildTable>tbody tr").each(function() {
+            $this = $(this);
+            var childId = $this.children( ".CHILD" ).children(".CHILD_ID").val();
+            jsonTxt +=  "{";
+            jsonTxt += formatJsonKeyValuePairNoComma("CHILD_ID", childId);
+            jsonTxt += "},";
+        });
+
+        jsonTxt= jsonTxt.substring(0, jsonTxt.length - 1);
+        jsonTxt += "],\n";
+    }
+    jsonTxt= jsonTxt.substring(0, jsonTxt.length - 2);
     jsonTxt += "}\n";
     $s("P410_TESZT", jsonTxt);
-    //var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',410);
-    //get.addParam("x01",jsonTxt); 
-    //var gReturn = get.get();
-    //alert(gReturn);
-    //get = null;
+    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',410);
+    get.addParam("x01",jsonTxt); 
+    var gReturn = get.get();
+    alert(gReturn);
+    get = null;
 
 } 
 
