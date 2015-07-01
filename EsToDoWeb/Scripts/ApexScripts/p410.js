@@ -92,8 +92,19 @@ function SaveChanges(){
     jsonTxt += formatJsonKeyValuePair("TREATM_TYPE_ID",$("#TREATM_TYPE_ID").children().val());
     jsonTxt += formatJsonKeyValuePairStr("FROM_DATE",$("#FROM_DATE").children().val());
     jsonTxt += formatJsonKeyValuePairStr("TO_DATE",$("#TO_DATE").children().val());
-    jsonTxt += formatJsonKeyValuePair("TYPE1_ID",$("#TYPE1_ID").children().val());
-    jsonTxt += formatJsonKeyValuePair("TYPE2_ID",$("#TYPE2_ID").children().val());
+    if ($("#TYPE1_ID").children().val() !== undefined) {
+        jsonTxt += formatJsonKeyValuePair("TYPE1_ID", $("#TYPE1_ID").children().val());
+    }
+    if ($("#TYPE2_ID").children().val() !== undefined) {
+        jsonTxt += formatJsonKeyValuePair("TYPE2_ID", $("#TYPE2_ID").children().val());
+    }
+    if ($("#SUBJ1_ID").children().val() !== undefined) {
+        jsonTxt += formatJsonKeyValuePair("SUBJ1_ID", $("#SUBJ1_ID").children().val());
+    }
+    if ($("#SUBJ2_ID").children().val() !== undefined) {
+        jsonTxt += formatJsonKeyValuePair("SUBJ2_ID", $("#SUBJ2_ID").children().val());
+    }
+    jsonTxt += formatJsonKeyValuePairStr("DESCRIPTION",$("#DESCRIPTION").children().val());
 
     if ($("#ParameterTable>tbody tr").length > 0) {
         jsonTxt += '"TREATM_PARAMS" : [';
@@ -149,6 +160,14 @@ function SaveChanges(){
 
 } 
 
+function CloseTreatm() {
+    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=Close',410); 
+    var gReturn = get.get();
+   
+    $s("P410_TESZT", gReturn);
+    get = null;
+    
+}
 
 function ChangeTreatmName(sender){
     var textToDisplay= "";
