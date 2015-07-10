@@ -11,10 +11,16 @@ $(document).ready(function () {
 
     });
 
+
+
     $("#spanClosePopup").click(function(e) {
         $("#popUpDiv").hide();
     });
     
+    $("#spanSuperTypClosePopup").click(function(e) {
+        $("#popUpSuperTypDiv").hide();
+    });
+
     $(".popTd").click(function(e) {
         var target = $( e.target );
         newRow = '<tr><th class="thDelete"><img src="wwv_flow_file_mgr.get_file?p_security_group_id=1000000&amp;p_fname=Minus Red Button.png"></th>';
@@ -35,10 +41,17 @@ $(document).ready(function () {
 function setInputElementsWidth() {
     $("#TreatmTable input").each(function () {
         $(this).width( $(this).closest('td').width());
+        $(this).css( "padding","5px" );
     });
 
     $("#TreatmTable select").each(function () {
-        $(this).width($(this).closest('td').width());
+        if ($(this).siblings().size() > 0) {
+            $(this).width($(this).closest('td').width() - 32);
+        } else {
+            $(this).width($(this).closest('td').width());
+        }
+        $(this).css( "padding","5px" );
+
     });
 
     $("#ParameterTable input").each(function () {
@@ -175,4 +188,15 @@ function ChangeTreatmName(sender){
     textToDisplay += $("#P400_TREATM_TYPE_ID").children(':selected').text() + " ";
     textToDisplay += $v(P400_TIME_START);
     $s("P400_TREATM_NAME",textToDisplay);  
+}
+
+function AddSuperTyp(p) {
+    alert($(p).siblings(":first").tagName());
+    var oSelect = $(p).siblings(":first");
+    $("#popUpSuperTypDiv").show();    
+    $("#popUpSuperTypDiv").center();
+
+    //oSelect.append($("<option></option>")
+    //     .attr("value",-1)
+    //     .text("az új opció")); 
 }

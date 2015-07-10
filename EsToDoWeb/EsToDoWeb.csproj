@@ -164,6 +164,8 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\p30014.css" />
+    <Content Include="Content\p410.css" />
     <Content Include="Content\responstable.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\SuperTypEditor.css" />
@@ -177,6 +179,7 @@
     <Content Include="Scripts\ApexScripts\p1.js" />
     <Content Include="Scripts\ApexScripts\P11300.js" />
     <Content Include="Scripts\ApexScripts\P3001.js" />
+    <Content Include="Scripts\ApexScripts\P30014.js" />
     <Content Include="Scripts\ApexScripts\P3202.js" />
     <Content Include="Scripts\ApexScripts\P400.js" />
     <Content Include="Scripts\ApexScripts\p410.js" />
