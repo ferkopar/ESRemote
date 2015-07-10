@@ -50,6 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ALERT.cs">
+      <DependentUpon>EsToDoModell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALERT_PARAM.cs">
+      <DependentUpon>EsToDoModell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Column.cs" />
     <Compile Include="DM_LANGUAGE.cs">
       <DependentUpon>ToDoModell.tt</DependentUpon>
     </Compile>
@@ -65,8 +72,24 @@
     <Compile Include="DM_TREATM.cs">
       <DependentUpon>ToDoModell.tt</DependentUpon>
     </Compile>
+    <Compile Include="EsToDoModell.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EsToDoModell.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EsToDoModell.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EsToDoModell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EsToDoModell.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EsToDoModell.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="ToDoModell.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +120,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="EsToDoModell.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EsToDoModell.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EsToDoModell.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EsToDoModell.edmx</DependentUpon>
+      <LastGenOutput>EsToDoModell.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EsToDoModell.edmx.diagram">
+      <DependentUpon>EsToDoModell.edmx</DependentUpon>
+    </None>
+    <None Include="EsToDoModell.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EsToDoModell.edmx</DependentUpon>
+      <LastGenOutput>EsToDoModell.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="ToDoModell.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EsToDoModell.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ALERT">
+          <Key>
+            <PropertyRef Name="ALERT_ID" />
+          </Key>
+          <Property Name="ALERT_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="ALERT_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="MESSAGE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="ALERT_STATUS" Type="varchar2" MaxLength="2" />
+          <Property Name="EPI_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="U_COMMENT" Type="varchar2" MaxLength="255" />
+          <Property Name="TO_DATE" Type="date" />
+          <Property Name="PRIORITY" Type="number" Precision="1" Scale="0" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="SUBJ_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="SUBJ_TYPE_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="OFFICE_ID" Type="number" Precision="12" Scale="0" />
+        </EntityType>
+        <EntityType Name="ALERT_PARAM">
+          <Key>
+            <PropertyRef Name="ALERT_PARAM_ID" />
+          </Key>
+          <Property Name="ALERT_PARAM_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="ALERT_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="PARAM_TYPE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="number" Precision="38" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="varchar2" MaxLength="255" />
+          <Property Name="VALUE" Type="varchar2" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="255" />
+          <Property Name="STATUS_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="CRU" Type="varchar2" MaxLength="30" />
+          <Property Name="CRD" Type="timestamp" Precision="6" />
+          <Property Name="MDU" Type="varchar2" MaxLength="30" />
+          <Property Name="MDD" Type="timestamp" Precision="6" />
+          <Property Name="SUBJ_ID" Type="number" Precision="12" Scale="0" />
+          <Property Name="APEX_PAGE_OLD" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <Association Name="FK_ALERT_PARAM_ALERT_ALERT_ID">
+          <End Role="ALERT" Type="Self.ALERT" Multiplicity="1" />
+          <End Role="ALERT_PARAM" Type="Self.ALERT_PARAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALERT">
+              <PropertyRef Name="ALERT_ID" />
+            </Principal>
+            <Dependent Role="ALERT_PARAM">
+              <PropertyRef Name="ALERT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EsToDoModellStoreContainer">
+          <EntitySet Name="ALERT" EntityType="Self.ALERT" Schema="OBH_TEST" store:Type="Tables" />
+          <EntitySet Name="ALERT_PARAM" EntityType="Self.ALERT_PARAM" Schema="OBH_TEST" store:Type="Tables" />
+          <AssociationSet Name="FK_ALERT_PARAM_ALERT_ALERT_ID" Association="Self.FK_ALERT_PARAM_ALERT_ALERT_ID">
+            <End Role="ALERT" EntitySet="ALERT" />
+            <End Role="ALERT_PARAM" EntitySet="ALERT_PARAM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EsToDoModell" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EsToDoModellContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ALERTs" EntityType="EsToDoModell.ALERT" />
+          <EntitySet Name="ALERT_PARAM" EntityType="EsToDoModell.ALERT_PARAM" />
+          <AssociationSet Name="FK_ALERT_PARAM_ALERT_ALERT_ID" Association="EsToDoModell.FK_ALERT_PARAM_ALERT_ALERT_ID">
+            <End Role="ALERT" EntitySet="ALERTs" />
+            <End Role="ALERT_PARAM" EntitySet="ALERT_PARAM" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ALERT">
+          <Key>
+            <PropertyRef Name="ALERT_ID" />
+          </Key>
+          <Property Name="ALERT_ID" Type="Int64" Nullable="false" />
+          <Property Name="ALERT_TYPE_ID" Type="Int64" />
+          <Property Name="MESSAGE_ID" Type="Int64" />
+          <Property Name="ALERT_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="EPI_ID" Type="Int64" />
+          <Property Name="U_COMMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="PRIORITY" Type="Int16" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="STATUS_ID" Type="Int64" />
+          <Property Name="SUBJ_ID" Type="Int64" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SUBJ_TYPE_ID" Type="Int64" />
+          <Property Name="OFFICE_ID" Type="Int64" />
+          <NavigationProperty Name="ALERT_PARAM" Relationship="EsToDoModell.FK_ALERT_PARAM_ALERT_ALERT_ID" FromRole="ALERT" ToRole="ALERT_PARAM" />
+        </EntityType>
+        <EntityType Name="ALERT_PARAM">
+          <Key>
+            <PropertyRef Name="ALERT_PARAM_ID" />
+          </Key>
+          <Property Name="ALERT_PARAM_ID" Type="Int64" Nullable="false" />
+          <Property Name="ALERT_ID" Type="Int64" Nullable="false" />
+          <Property Name="PARAM_TYPE_ID" Type="Int64" Nullable="false" />
+          <Property Name="APEX_PAGE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="APEX_VARIABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VALUE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_ID" Type="Int64" Nullable="false" />
+          <Property Name="CRU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CRD" Type="DateTime" Precision="6" />
+          <Property Name="MDU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MDD" Type="DateTime" Precision="6" />
+          <Property Name="SUBJ_ID" Type="Int64" />
+          <Property Name="APEX_PAGE_OLD" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ALERT" Relationship="EsToDoModell.FK_ALERT_PARAM_ALERT_ALERT_ID" FromRole="ALERT_PARAM" ToRole="ALERT" />
+        </EntityType>
+        <Association Name="FK_ALERT_PARAM_ALERT_ALERT_ID">
+          <End Type="EsToDoModell.ALERT" Role="ALERT" Multiplicity="1" />
+          <End Type="EsToDoModell.ALERT_PARAM" Role="ALERT_PARAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALERT">
+              <PropertyRef Name="ALERT_ID" />
+            </Principal>
+            <Dependent Role="ALERT_PARAM">
+              <PropertyRef Name="ALERT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="EsToDoModell" />
+        <Alias Key="Target" Value="EsToDoModell.Store" />
+        <EntityContainerMapping CdmEntityContainer="EsToDoModellContainer" StorageEntityContainer="EsToDoModellStoreContainer">
+          <EntitySetMapping Name="ALERTs">
+            <EntityTypeMapping TypeName="EsToDoModell.ALERT">
+              <MappingFragment StoreEntitySet="ALERT">
+                <ScalarProperty Name="OFFICE_ID" ColumnName="OFFICE_ID" />
+                <ScalarProperty Name="SUBJ_TYPE_ID" ColumnName="SUBJ_TYPE_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="SUBJ_ID" ColumnName="SUBJ_ID" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+                <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+                <ScalarProperty Name="U_COMMENT" ColumnName="U_COMMENT" />
+                <ScalarProperty Name="EPI_ID" ColumnName="EPI_ID" />
+                <ScalarProperty Name="ALERT_STATUS" ColumnName="ALERT_STATUS" />
+                <ScalarProperty Name="MESSAGE_ID" ColumnName="MESSAGE_ID" />
+                <ScalarProperty Name="ALERT_TYPE_ID" ColumnName="ALERT_TYPE_ID" />
+                <ScalarProperty Name="ALERT_ID" ColumnName="ALERT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALERT_PARAM">
+            <EntityTypeMapping TypeName="EsToDoModell.ALERT_PARAM">
+              <MappingFragment StoreEntitySet="ALERT_PARAM">
+                <ScalarProperty Name="APEX_PAGE_OLD" ColumnName="APEX_PAGE_OLD" />
+                <ScalarProperty Name="SUBJ_ID" ColumnName="SUBJ_ID" />
+                <ScalarProperty Name="MDD" ColumnName="MDD" />
+                <ScalarProperty Name="MDU" ColumnName="MDU" />
+                <ScalarProperty Name="CRD" ColumnName="CRD" />
+                <ScalarProperty Name="CRU" ColumnName="CRU" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="APEX_VARIABLE" ColumnName="APEX_VARIABLE" />
+                <ScalarProperty Name="APEX_PAGE" ColumnName="APEX_PAGE" />
+                <ScalarProperty Name="PARAM_TYPE_ID" ColumnName="PARAM_TYPE_ID" />
+                <ScalarProperty Name="ALERT_ID" ColumnName="ALERT_ID" />
+                <ScalarProperty Name="ALERT_PARAM_ID" ColumnName="ALERT_PARAM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

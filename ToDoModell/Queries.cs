@@ -32,27 +32,29 @@ namespace ToDoModell
         public static List<string> proba()
         {
             List<string> list = new List<string>();
-            string sqlQuery = "select treatm_name from TREATM";
+            string sqlQuery = "select * from all_tab_columns WHERE OWNER = 'OBH_TEST'";
+            //select * from "PUBLIC".USER_TAB_COLS ;
+            //SELECT * FROM user_tables;
             using (var e = new EsToDoEntities())
             {
                 var conn = e.Database.Connection;
                 conn.Open();
-                var schema = conn.GetSchema("columns");
+                //var schema = conn.GetSchema("columns");
 
-                DisplayData(schema);
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
-                
-                //var cmd = conn.CreateCommand();
-                //cmd.CommandText = sqlQuery;
-                //var reader = cmd.ExecuteReader();
-               
-                //while (reader.Read())
-                //{
+                //DisplayData(schema);
+                //Console.WriteLine("Press any key to continue.");
+                //Console.ReadKey();
 
-                //    list.Add(reader.GetString(reader.GetOrdinal("treatm_name")));
-                //}
-                //conn.Close();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = sqlQuery;
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    list.Add(reader.GetString(reader.GetOrdinal("COLUMN_NAME")));
+                }
+                conn.Close();
                 return list;
             }
         }
