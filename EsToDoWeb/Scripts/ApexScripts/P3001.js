@@ -1,5 +1,31 @@
 ﻿var htmldb_delete_message='"DELETE_CONFIRM_MSG"';
 
+function setInputElementsWidth() {
+    $("#TreatmTable input").each(function () {
+        $(this).width($(this).closest('td').width());
+        $(this).css("padding", "5px");
+    });
+
+    $("#TreatmTable select").each(function () {
+        if ($(this).siblings().size() > 0) {
+            $(this).width($(this).closest('td').width() - 32);
+        } else {
+            $(this).width($(this).closest('td').width());
+        }
+        $(this).css("padding", "5px");
+
+    });
+
+    $("#ParameterTable input").each(function () {
+        $(this).width($(this).closest('td').width());
+    });
+
+    $("#ParameterTable select").each(function () {
+        $(this).width($(this).closest('td').width());
+    });
+
+}
+
 function alertIfDeveloper( p )
 {
     //    alert($v("APP_USER")); 
