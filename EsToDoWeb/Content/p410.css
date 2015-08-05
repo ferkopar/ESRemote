@@ -1,5 +1,5 @@
 ﻿
-#popUpDiv, #popUpSuperTypDiv{
+#popUpDiv{
    z-index: 100;
    position: absolute;
    background-color: rgba(172, 179, 180, 0);
@@ -10,7 +10,22 @@
    height: 300px;
 }
 
-#popUpDiv span,  #popUpSuperTypDiv span{
+
+
+ #popUpSuperTypDiv, #popUpSubjectDiv{
+   z-index: 100;
+   position: absolute;
+   background-color: rgba(172, 179, 180, 0);
+   display: none;
+   top: 0;
+   left: 0;
+   width: 800px;
+   height: 300px;
+}
+
+
+
+#popUpDiv span,  #popUpSuperTypDiv span, #popUpSubjectDiv span {
    cursor: pointer; 
 }
 

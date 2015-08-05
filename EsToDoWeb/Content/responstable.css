@@ -1,3 +1,4 @@
+﻿
 ﻿/*
 
 RESPONSTABLE 2.0 by jordyvanraaij
@@ -60,6 +61,11 @@ If you like this solution, you might also want to check out the 1.0 version:
   text-align: center;
   border-right: 1px solid #D9E4E6;
 }
+
+.responstable > tbody > tr:nth-child(1) > th > span > button{
+  color:black !important; 
+}
+
 @media (min-width: 480px) {
   .responstable td {
     border: 1px solid #D9E4E6;
@@ -69,25 +75,7 @@ If you like this solution, you might also want to check out the 1.0 version:
   text-align: left;
   margin: .5em 1em;
 }
-@media (min-width: 480px) {
-  .responstable th, .responstable td {
-    display: table-cell;
-    padding: 1em;
-  }
-}
 
-body {
-  padding: 0 2em;
-  font-family: Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
-}
 
-h1 {
-  font-family: Verdana;
-  font-weight: normal;
-  color: #024457;
-}
-h1 span {
-  color: #167F92;
-}
+
+

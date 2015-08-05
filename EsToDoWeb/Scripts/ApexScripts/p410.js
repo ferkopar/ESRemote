@@ -1,4 +1,7 @@
-﻿function isEmpty(str) {
+﻿var oSelector;
+var oSelectorText;
+
+function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 
@@ -14,17 +17,25 @@ $(document).ready(function () {
 
 
     $("#spanClosePopup").click(function(e) {
+        appendSelector();
         $("#popUpDiv").hide();
     });
     
     $("#spanSuperTypClosePopup").click(function(e) {
+        appendSelector();
+
         $("#popUpSuperTypDiv").hide();
+    });
+
+    $("#spanSubjectClosePopup").click(function(e) {
+        appendSelector();
+        $("#popUpSubjectDiv").hide();
     });
 
     $(".popTd").click(function(e) {
         var target = $( e.target );
         newRow = '<tr><th class="thDelete"><img src="wwv_flow_file_mgr.get_file?p_security_group_id=1000000&amp;p_fname=Minus Red Button.png"></th>';
-        newRow += '<td>' +  target.html() + '</td></tr>'
+        newRow += '<td>' + target.html() + '</td></tr>';
         $("#ChildTable").append(newRow);
         $("#popUpDiv").hide();
     });
@@ -36,7 +47,11 @@ $(document).ready(function () {
     
 });
 
-
+function appendSelector() {
+    oSelector.append($("<option></option>")
+         .attr("value",-1)
+         .text( oSelectorText.val() )); 
+}
 
 function setInputElementsWidth() {
     $("#TreatmTable input").each(function () {
@@ -196,7 +211,19 @@ function AddSuperTyp(p) {
     $("#popUpSuperTypDiv").show();    
     $("#popUpSuperTypDiv").center();
 
-    //oSelect.append($("<option></option>")
-    //     .attr("value",-1)
-    //     .text("az új opció")); 
+    oSelector = oSelect;
+    oSelectorText = $('#pSuperTypeName');
+
+}
+
+function AddSubject(p) {
+    alert($(p).siblings(":first").tagName());
+    var oSelect = $(p).siblings(":first");
+    $("#popUpSubjectDiv").show();    
+    $("#popUpSubjectDiv").center();
+
+    oSelector = oSelect;
+    oSelectorText = $('#pSubjName');
+
+
 }
