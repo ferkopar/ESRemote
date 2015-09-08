@@ -15,7 +15,7 @@ function idChange(p) {
 
 function Clear(){
     var roleLevel = $("#ROLL_TYPE").children().val();
-    $("input").each(function () {
+    $(".responstable input").each(function () {
         $(this).val("");
     });
     $("#ROLL_TYPE").children().val(roleLevel);
@@ -23,10 +23,14 @@ function Clear(){
 
 function CreateChild(){
     var groupID   = $("#SUPER_TYP_ID").children().val();
-    var groupName = $("#SUPER_TYPE_NAME").children().val()
+    var groupName = $("#SUPER_TYPE_NAME").children().val();
+    var groundLevelId = $("#GROUND_LEVEL_ID").children().val();
+    var groundLevelName = $("#GROUND_LEVEL_NAME").children().val();
     Clear();
     $("#GROUP_ID").children().val(groupID);
     $("#SUPER_GROUP_NAME").children().val(groupName);
+    $("#GROUND_LEVEL_ID").children().val(groundLevelId);
+    $("#GROUND_LEVEL_NAME").children().val(groundLevelName);
 }
 
 function SaveChanges() {
@@ -71,12 +75,12 @@ function SaveChanges() {
     jsonTxt = jsonTxt.substring(0, jsonTxt.length - 1);
     jsonTxt += "}\n";
     $s("P11220_DEBUG", jsonTxt);
-//    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',11220);
-//    get.addParam("x01",jsonTxt); 
-//    var gReturn = get.get();
-////    alert(gReturn);
-//    get = null;
-//    apex.submit();
+    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',11220);
+    get.addParam("x01",jsonTxt); 
+    var gReturn = get.get();
+    alert(gReturn);
+    get = null;
+    //apex.submit();
 
     //alert(jsonTxt);
 }
