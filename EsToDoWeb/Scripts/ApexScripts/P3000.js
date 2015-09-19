@@ -23,9 +23,9 @@ function goToEdit(p) {
 
     var urn;
     if(p==0)
-        urn = 'f?p=&APP_ID.:3001:&SESSION.::NO:3001';
+        urn = 'f?p=&APP_ID.:3001:&SESSION.::NO:3001:P3001_SUBJ_CATEGORY_ID:'+$v("P3000_SUBJ_TYPE");
     else
-        urn = 'f?p=&APP_ID.:3001:&SESSION.::NO::P3001_SUBJ_ID:' + p;
+        urn = 'f?p=&APP_ID.:3001:&SESSION.::NO::P3001_SUBJ_ID,P3001_SUBJ_CATEGORY_ID:' + p +','+$v("P3000_SUBJ_TYPE");
 
     //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
     alert(urn);
