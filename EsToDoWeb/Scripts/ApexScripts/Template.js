@@ -53,6 +53,12 @@ jQuery.fn.center = function () {
     return this;
 }
 
+function AlertIfDeveloper(p){
+    if( '&APP_USER.' == 'FPARDI'){
+        alert (p);
+    }
+}
+
 function formatJsonKeyValuePairStr(key, value) {
 
     return "\"{0}\":\"{1}\",\n".format(key, value);
@@ -73,6 +79,10 @@ function formatJsonKeyValuePairNoComma(key, value) {
     return "\"{0}\":{1}\n".format(key, value);
 }
 
-function isEmpty(str) {
+function isEmptyVar(str) {
     return (!str || 0 === str.length);
+}
+
+function dropLastComma(str){
+    return str.substring(0,str.lastIndexOf(','));
 }

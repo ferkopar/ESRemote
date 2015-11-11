@@ -36,10 +36,10 @@ function alertIfDeveloper( p )
 
 function SaveChanges(){ 
 
-    //if(! valid()){
-    //    alert('Kötelező mező nincs kitöltve' + ErrorString); 
-    //    return;
-    //}
+    if(! valid()){
+        alert('Kötelező mező nincs kitöltve'); 
+        return;
+    }
     
     alert('SaveChanges'); 
     //if (!dirty) return;
@@ -52,7 +52,7 @@ function SaveChanges(){
     jsonTxt += formatJsonKeyValuePairStr("SUBJ_TYPE",$("#SUBJ_TYPE").val());  
     jsonTxt += formatJsonKeyValuePairStr("FROM_DATE",$("#FROM_DATE").val());  
     jsonTxt += formatJsonKeyValuePairNoCommaStr("TO_DATE",$("#TO_DATE").val());  
-    jsonTxt += ",[";
+    jsonTxt += ",PARAMS:[";
     $("#ParameterTable>tbody tr").each(function() {
         $this = $(this);
         editField = $this.children( ".value" ).children();
@@ -67,7 +67,7 @@ function SaveChanges(){
             jsonTxt += "},";
         }
     });
-         
+    jsonTxt = dropLastComma(jsonTxt);    
     jsonTxt += "]";
     jsonTxt += "}";
     $s("P3001_TESZT", jsonTxt);
@@ -230,13 +230,9 @@ function valid(){
         $this = $(this);
         var inputValue = $this.children( ".value" ).children().val();
         var mandantory = $this.children( ".rowHead" ).children(".mandantory").val();
-        if( mandantory != 0 && isEmpty(inputValue )){
+        if( mandantory != 0 && isEmptyVar(inputValue )){
             retVal = false;             
         }
     });
     return retVal;
-}
-
-function isEmpty(str) {
-    return (!str || 0 === str.length);
 }
