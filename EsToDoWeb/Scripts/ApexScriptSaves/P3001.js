@@ -1,20 +1,5 @@
 ﻿var htmldb_delete_message='"DELETE_CONFIRM_MSG"';
 
-   
-
-
-function toggleGroup(p) {
-    var $param = $(p);
-    var group_id = $param.data("id");
-    $("#ParameterTable tr[data-group='" + group_id + "']").each(function() {
-        $(this).toggle();
-    });
-    $(".subtable").each(function() {
-        $(this).width($(this).closest("td").width());
-    });
-    setInputElementsWidth();
-}
-
 function setInputElementsWidth() {
     $("#SubjHeadTable input").each(function () {
         $(this).width($(this).closest('td').width());
@@ -243,6 +228,7 @@ function AddSubject(){
 function goBack(){
     window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":3000:"+$v('pInstance'));
 }
+
 
 function valid(){
     retVal = true;

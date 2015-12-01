@@ -18,3 +18,27 @@
 
 }
 
+function LoadTree(p) {
+    var typeId = $(p).data('typid');
+    //alert(typeId);   
+     var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=getSubTree',11300);
+     get.addParam("x01",typeId); 
+     get.GetAsync(function(pResponse){
+         console.log(pResponse.readyState);
+         if(pResponse.readyState==4 && pResponse.status==200){
+             $("#SuperTypeTable > tbody").html(pResponse.responseText);
+         };
+     });
+     //var gReturn = get.get();
+     //alert(gReturn);
+    $("#SuperTypeTable > tbody").empty();
+    //$("#SuperTypeTable > tbody").html(gReturn);
+}
+
+function GoToEditor(p) {
+    var typeId = $(p).data('typid');
+    var urn = 'f?p=&APP_ID.:11301:&SESSION.::NO::P11301_SUPER_TYP_ID:' + typeId;
+    //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
+    window.location = urn;
+}
+

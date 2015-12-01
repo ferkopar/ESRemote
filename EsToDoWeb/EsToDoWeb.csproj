@@ -212,9 +212,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Scripts\ApexScriptSaves\P3001.js" />
     <Content Include="Scripts\ApexScripts\p11220.js" />
+    <Content Include="Scripts\ApexScripts\p3001.css" />
     <Content Include="Scripts\ApexScripts\P301.js" />
     <Content Include="Scripts\ApexScripts\p3100.js" />
+    <Content Include="Scripts\ApexScripts\P3110.js" />
     <Content Include="Scripts\bootstrap-multiselect-master\bower.json" />
     <Content Include="Scripts\bootstrap-multiselect-master\dist\less\bootstrap-multiselect.less" />
     <Content Include="Scripts\bootstrap-multiselect-master\docs\fonts\glyphicons-halflings-regular.eot" />

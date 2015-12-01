@@ -31,7 +31,7 @@ If you like this solution, you might also want to check out the 1.0 version:
 }
 .responstable th:first-child {
   display: table-cell;
-  text-align: center;
+  text-align: left;
 }
 .responstable th:nth-child(2) {
   display: table-cell;
@@ -55,9 +55,13 @@ If you like this solution, you might also want to check out the 1.0 version:
   word-wrap: break-word;
   max-width: 7em;
 }
+
+.readonly {
+   background-color: #aaaaaa;
+}
 .responstable td:first-child {
   display: table-cell;
-  text-align: center;
+  text-align: left;
   border-right: 1px solid #D9E4E6;
 }
 @media (min-width: 480px) {
@@ -76,18 +80,3 @@ If you like this solution, you might also want to check out the 1.0 version:
   }
 }
 
-body {
-  padding: 0 2em;
-  font-family: Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
-}
-
-h1 {
-  font-family: Verdana;
-  font-weight: normal;
-  color: #024457;
-}
-h1 span {
-  color: #167F92;
-}

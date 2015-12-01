@@ -1,5 +1,7 @@
 ﻿var htmldb_delete_message="\"DELETE_CONFIRM_MSG\"";
 
+/* EXPERT */
+
 function callHelpPopup () {
     var url;
     url = "f?p=&APP_ID.:3101:&APP_SESSION." ;
@@ -47,13 +49,13 @@ function  DeleteParamRow(p){
     }
 }}
 
-function toggleGroup(p){
-    var $param = $(p); 
+function toggleGroup(p) {
+    var $param = $(p);
     var group_id = $param.data("id");
-    $("#ParameterTable tr[data-group='"+group_id+"']").each(function(){
-        $( this ).toggle();
+    $("#ParameterTable tr[data-group='" + group_id + "']").each(function() {
+        $(this).toggle();
     });
-    $(".subtable").each(function () {
+    $(".subtable").each(function() {
         $(this).width($(this).closest("td").width());
     });
     setInputElementsWidth();
