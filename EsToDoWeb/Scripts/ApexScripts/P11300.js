@@ -36,9 +36,18 @@ function LoadTree(p) {
 }
 
 function GoToEditor(p) {
-    var typeId = $(p).data('typid');
+    var typeId = $(p).data('typeid');
+    
     var urn = 'f?p=&APP_ID.:11301:&SESSION.::NO::P11301_SUPER_TYP_ID:' + typeId;
     //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
     window.location = urn;
 }
 
+function addDescendant(p) {
+    var e = window.event;
+    e.stopPropagation();
+    alert("addDescendant");
+    var urn = "f?p=&APP_ID.:11301:&SESSION.:ADD:NO::P11301_SUPER_TYP_ID:" + $(p).data("id");
+    //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
+    window.location = urn;
+}
