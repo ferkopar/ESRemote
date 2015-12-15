@@ -53,7 +53,8 @@ function changeOrder(o) {
 }
 
 function changeSearch(o) {
-//    alert("change_search");
+    deleteDataRows();
+    reloadMainTable(o);
 }
 
 function deleteDataRows() {
@@ -64,10 +65,16 @@ function deleteDataRows() {
 }
 
 function reloadMainTable(p) {
-
+    var whereExists = false;
     var jsonTxt = "{\n";
-    jsonTxt += formatJsonKeyValuePairNoComma("SUBJ_TYPE",$v("P3000_SUBJ_TYPE"));  
-  
+    jsonTxt += formatJsonKeyValuePairNoComma("SUBJ_TYPE", $v("P3000_SUBJ_TYPE"));
+
+    var whereTxt = "";
+    var t = $("#srcTYPE").val();
+    if (!(t == 0)) {
+        whereExists = true;
+        whereTxt += t;
+    }
     var sortTxt = "";
     var s = $(".sortImg");
     s.each(
@@ -84,18 +91,22 @@ function reloadMainTable(p) {
             }
         }
     );
-    if(!isEmpty(sortTxt)){
-        sortTxt= sortTxt.substring(0, sortTxt.length - 1);
+    if (whereExists) {
+
+        jsonTxt += ","+formatJsonKeyValuePairNoCommaStr("WHERE", whereTxt);
     }
-    sortTxt= sortTxt.substring(0, sortTxt.length - 1);
-    jsonTxt += ",\n";
-    jsonTxt +=formatJsonKeyValuePairNoCommaStr("ORDER", sortTxt) ;
+
+    if (! (sortTxt === "")) {
+        sortTxt = sortTxt.substring(0, sortTxt.length - 1);
+        jsonTxt += ",\n";
+        jsonTxt += formatJsonKeyValuePairNoCommaStr("ORDER", sortTxt);
+    }
     jsonTxt += "}\n";
     var dataTable = $("#mainTable");
+    $s("P3000_TESZT",jsonTxt); 
     var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=reload',3000);
     get.addParam("x01", jsonTxt);
-    //get.addParam("x02", selected);
-    $s("P3000_TESZT",jsonTxt); 
+    //get.addParam("x02", selected);    
     var retVal = get.get(); 
     $s("P3000_TESZT",jsonTxt+"\n"+retVal);  
     dataTable.append(retVal);
