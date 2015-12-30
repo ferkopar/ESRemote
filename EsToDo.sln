@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTry", "ToDoTry\ToDoTry.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerkopaUtils", "..\..\Work.old\dev\FerkopaUtils\FerkopaUtils\FerkopaUtils.csproj", "{254271D0-4784-4E48-83F4-17A44F1E8C36}"
 EndProject
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "OaracleProbaProjekt", "OaracleProbaProjekt\OaracleProbaProjekt.oradbproj", "{85F92896-4BEE-48F0-850F-861F8139EBE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
