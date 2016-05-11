@@ -58,12 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ToDoModell\ToDoModell.csproj">
-      <Project>{05e498ce-4ed5-4321-a109-c0e0987b1454}</Project>
-      <Name>ToDoModell</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

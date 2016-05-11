@@ -133,16 +133,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ToDoModellView\ToDoModellView.csproj">
-      <Project>{0187cfb5-7fa0-4a59-873c-c25c2efe90da}</Project>
-      <Name>ToDoModellView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ToDoModell\ToDoModell.csproj">
-      <Project>{05e498ce-4ed5-4321-a109-c0e0987b1454}</Project>
-      <Name>ToDoModell</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

@@ -3,19 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsToDo", "EsToDo\EsToDo.csproj", "{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsToDoWeb", "EsToDoWeb\EsToDoWeb.csproj", "{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoModell", "ToDoModell\ToDoModell.csproj", "{05E498CE-4ED5-4321-A109-C0E0987B1454}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoModellView", "ToDoModellView\ToDoModellView.csproj", "{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsTodoTest", "EsTodoTest\EsTodoTest.csproj", "{35C7A7D7-6025-40DD-ABD1-E62415B958ED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTry", "ToDoTry\ToDoTry.csproj", "{8C6954D9-D9BB-420C-A4F7-B50C78F27250}"
-EndProject
-Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "ProbaOrracle", "..\..\..\Users\Ferkó\Documents\Visual Studio 2015\Projects\ProbaOrracle\ProbaOrracle\ProbaOrracle.oradbproj", "{B6E707DD-BF87-48E6-AD95-7B08168D7CB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerkopaUtils", "..\..\Work.old\dev\FerkopaUtils\FerkopaUtils\FerkopaUtils.csproj", "{254271D0-4784-4E48-83F4-17A44F1E8C36}"
 EndProject
@@ -27,14 +15,6 @@ Global
 		x64|Any CPU = x64|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Release .Net 4|Any CPU.Build.0 = Release|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.x64|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D6D38B-F6AF-444E-B8F0-F6E9BA126D6E}.x64|Any CPU.Build.0 = Release|Any CPU
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,38 +23,6 @@ Global
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.x64|Any CPU.ActiveCfg = Release|Any CPU
 		{8DC3A5E4-C7CC-489E-A8B8-434BD7D7F51A}.x64|Any CPU.Build.0 = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Release .Net 4|Any CPU.Build.0 = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.x64|Any CPU.ActiveCfg = Release|Any CPU
-		{05E498CE-4ED5-4321-A109-C0E0987B1454}.x64|Any CPU.Build.0 = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release .Net 4|Any CPU.Build.0 = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.x64|Any CPU.ActiveCfg = Release|Any CPU
-		{0187CFB5-7FA0-4A59-873C-C25C2EFE90DA}.x64|Any CPU.Build.0 = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release .Net 4|Any CPU.Build.0 = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.x64|Any CPU.ActiveCfg = Release|Any CPU
-		{35C7A7D7-6025-40DD-ABD1-E62415B958ED}.x64|Any CPU.Build.0 = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release .Net 4|Any CPU.ActiveCfg = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release .Net 4|Any CPU.Build.0 = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.x64|Any CPU.ActiveCfg = Release|Any CPU
-		{8C6954D9-D9BB-420C-A4F7-B50C78F27250}.x64|Any CPU.Build.0 = Release|Any CPU
 		{254271D0-4784-4E48-83F4-17A44F1E8C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{254271D0-4784-4E48-83F4-17A44F1E8C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{254271D0-4784-4E48-83F4-17A44F1E8C36}.Release .Net 4|Any CPU.ActiveCfg = Release .Net 4|Any CPU

@@ -28,7 +28,7 @@ function goToEdit(p) {
         urn = 'f?p=&APP_ID.:3001:&SESSION.::NO::P3001_SUBJ_ID,P3001_SUBJ_CATEGORY_ID:' + p +','+$v("P3000_SUBJ_TYPE");
 
     //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
-    alert(urn);
+    //alert(urn);
     window.location = urn;
 }
 
@@ -75,6 +75,7 @@ function reloadMainTable(p) {
         whereExists = true;
         whereTxt += t;
     }
+
     var sortTxt = "";
     var s = $(".sortImg");
     s.each(
@@ -96,18 +97,38 @@ function reloadMainTable(p) {
         jsonTxt += ","+formatJsonKeyValuePairNoCommaStr("WHERE", whereTxt);
     }
 
+    if (! isEmptyVar($("#srcSUBJ_NAME").val())) {
+        
+        jsonTxt += "," + formatJsonKeyValuePairNoCommaStr("SUBJ_NAME", $("#srcSUBJ_NAME").val());
+     
+    }
+
     if (! (sortTxt === "")) {
         sortTxt = sortTxt.substring(0, sortTxt.length - 1);
         jsonTxt += ",\n";
         jsonTxt += formatJsonKeyValuePairNoCommaStr("ORDER", sortTxt);
     }
     jsonTxt += "}\n";
+    //SendJson(jsonTxt); 
     var dataTable = $("#mainTable");
-    $s("P3000_TESZT",jsonTxt); 
     var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=reload',3000);
     get.addParam("x01", jsonTxt);
     //get.addParam("x02", selected);    
     var retVal = get.get(); 
     $s("P3000_TESZT",jsonTxt+"\n"+retVal);  
     dataTable.append(retVal);
+}
+
+function SendJson(jsonTxt) {
+    alert("Json sent");
+    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=reload',3000);
+    get.addParam("x01", jsonTxt);
+    get.GetAsync(function(pResponse) {
+        if (pResponse.readyState === 4 && pResponse.status === 200) {
+            alert(pResponse.responseText);
+            var dataTable = $("#mainTable");
+            dataTable.append(responseText);
+        };
+    });
+
 }
