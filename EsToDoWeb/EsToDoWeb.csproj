@@ -220,6 +220,7 @@
     <Content Include="Scripts\ApexScripts\p3100.js" />
     <Content Include="Scripts\ApexScripts\P3110.js" />
     <Content Include="Scripts\ApexScripts\p3111.js" />
+    <Content Include="Scripts\ApexScripts\p440.js" />
     <Content Include="Scripts\bootstrap-multiselect-master\bower.json" />
     <Content Include="Scripts\bootstrap-multiselect-master\dist\less\bootstrap-multiselect.less" />
     <Content Include="Scripts\bootstrap-multiselect-master\docs\fonts\glyphicons-halflings-regular.eot" />

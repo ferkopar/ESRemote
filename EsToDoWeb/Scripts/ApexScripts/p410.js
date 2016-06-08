@@ -9,8 +9,11 @@ $(document).ready(function () {
     setInputElementsWidth(); 
 
     $("#spanAddChild").click(function(e) {
-        $("#popUpDiv").show();    
-        $("#popUpDiv").center();
+        //$("#popUpDiv").show();    
+        //$("#popUpDiv").center();
+        window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":410:"+$v('pInstance')+':::410:P410_CALLER_PAGE,P410_CALLER_TREATM:410,'+$v('P410_TREATM_ID'));
+        //window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":3004:"+$v('pInstance'));
+
 
     });
 
@@ -23,7 +26,6 @@ $(document).ready(function () {
     
     $("#spanSuperTypClosePopup").click(function(e) {
         appendSelector();
-
         $("#popUpSuperTypDiv").hide();
     });
 
@@ -46,6 +48,12 @@ $(document).ready(function () {
     });
     
 });
+
+function goBack(subjid){
+
+    window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":410:"+$v('pInstance')+'::::P410_CALLER_PAGE,P410_CALLER_TREATM:410,'+$("#mainselect").val());
+   
+}
 
 function appendSelector() {
     oSelector.append($("<option></option>")
