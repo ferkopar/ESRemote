@@ -21,7 +21,7 @@ function goToEdit(p) {
 }
 
 function addProject() {
-    var urn = 'f?p=&APP_ID.:410:&SESSION.::NO:P410:P410_TREATM_TYPE:'+$v('P440_TREATM_TYPE');
+    var urn = 'f?p=&APP_ID.:410:&SESSION.::NO:410:P410_TREATM_TYPE_ID:'+$v('P440_TREATM_TYPE');
 
     //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
     //alert(urn);

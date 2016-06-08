@@ -124,7 +124,6 @@ function SaveChanges(){
         jsonTxt += formatJsonKeyValuePair("TREATM_GROUP_ID",$v("P410_TREATM_GROUP_ID"));        
     }
     jsonTxt += formatJsonKeyValuePairStr("TREATM_NAME",$("#TREATM_NAME").children().val());
-    jsonTxt += formatJsonKeyValuePair("TREATM_CATEGORY_ID",$("#TREATM_CATEGORY_ID").children().val());
     jsonTxt += formatJsonKeyValuePair("TREATM_TYPE_ID",$("#TREATM_TYPE_ID").children().val());
     jsonTxt += formatJsonKeyValuePairStr("FROM_DATE",$("#FROM_DATE").children().val());
     jsonTxt += formatJsonKeyValuePairStr("TO_DATE",$("#TO_DATE").children().val());
