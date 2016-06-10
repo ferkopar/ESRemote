@@ -11,9 +11,9 @@ function goToEdit(p) {
 
     var urn;
     if (p == 0)
-        urn = 'f?p=&APP_ID.:410:&SESSION.::NO:410';
+        urn = 'f?p=&APP_ID.:410:&SESSION.:410:NO:410';
     else
-        urn = 'f?p=&APP_ID.:410:&SESSION.::NO::P410_TREATM_ID:' + p;
+        urn = 'f?p=&APP_ID.:410:&SESSION.::NO:410:P410_TREATM_ID:' + p;
 
     //f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
     //alert(urn);

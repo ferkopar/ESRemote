@@ -13,8 +13,6 @@ $(document).ready(function () {
         //$("#popUpDiv").center();
         window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":410:"+$v('pInstance')+':::410:P410_CALLER_PAGE,P410_CALLER_TREATM:410,'+$v('P410_TREATM_ID'));
         //window.location.replace("http://157.181.173.15:8080/apex/f?p="+$v('pFlowId') +":3004:"+$v('pInstance'));
-
-
     });
 
 
@@ -47,6 +45,7 @@ $(document).ready(function () {
         target.closest('tr').hide();
     });
     
+
 });
 
 function goBack(subjid){
@@ -90,12 +89,13 @@ function setInputElementsWidth() {
 function selectListChanged(sender) {
     dirty(sender);
     columnName = $(sender).closest('td').attr('id');
-    if (columnName == "TREATM_CATEGORY_ID") {
+    if (columnName == "TREATM_TYPE_ID") {
         //       alert(columnName);
-        gReturn = getSelectListIems($(sender).attr('data-group'), $(sender).val());
+        // gReturn = getSelectListIems($(sender).attr('data-group'), $(sender).val());
         //--         alert(gReturn);
-        $("#TREATM_TYPE_ID").html(gReturn);
-        setInputElementsWidth();
+        //$("#TREATM_TYPE_ID").html(gReturn);
+        //setInputElementsWidth();
+        alert("selectListChanged:"+ $(sender).val());
     }
 }
 
@@ -114,14 +114,23 @@ function SaveChanges(){
     //    return;
     //}
     
-    alert('SaveChanges'); 
+    //alert('SaveChanges'); 
     //if (!dirty) return;
     $this = $(this);
     var treatmId = isEmpty($v("P410_TREATM_ID")) ? '0' : $v("P410_TREATM_ID");
-    var jsonTxt = "{\n";
+    var jsonTxt = "{";
     jsonTxt += formatJsonKeyValuePair("TREATM_ID",treatmId);
-    if (isEmpty($v("P410_TREATM_ID"))) {
-        jsonTxt += formatJsonKeyValuePair("TREATM_GROUP_ID",$v("P410_TREATM_GROUP_ID"));        
+    if (isEmpty($v("P410_TREATM_GROUP_ID"))) {
+        if (isEmpty($v("P410_TREATM_ID"))) {
+            jsonTxt += formatJsonKeyValuePair("TREATM_GROUP_ID","1604"); 
+        }
+        else
+        {
+            jsonTxt += formatJsonKeyValuePair("TREATM_GROUP_ID",$v("P410_TREATM_GROUP_ID")); 
+        }
+    }
+    if (!isEmpty($v("P410_CALLER_TREATM"))){
+        jsonTxt += formatJsonKeyValuePair("CALLER_TREATM_ID",$v("P410_CALLER_TREATM")); 
     }
     jsonTxt += formatJsonKeyValuePairStr("TREATM_NAME",$("#TREATM_NAME").children().val());
     jsonTxt += formatJsonKeyValuePair("TREATM_TYPE_ID",$("#TREATM_TYPE_ID").children().val());
@@ -190,7 +199,9 @@ function SaveChanges(){
     var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=SaveChanges',410);
     get.addParam("x01",jsonTxt); 
     var gReturn = get.get();
-    alert(gReturn);
+    $s("P410_TREATM_ID",gReturn);
+    $("#treatmIDCell").html = gReturn;
+    alert("treatm_id:"+gReturn);
     get = null;
 
 } 

@@ -170,42 +170,6 @@
     <Content Include="Content\responstable.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\SuperTypEditor.css" />
-    <Content Include="Expert\datetimepicker-master\.gitignore" />
-    <Content Include="Expert\datetimepicker-master\build\jquery.datetimepicker.full.js" />
-    <Content Include="Expert\datetimepicker-master\build\jquery.datetimepicker.full.min.js" />
-    <Content Include="Expert\datetimepicker-master\build\jquery.datetimepicker.min.js" />
-    <Content Include="Expert\datetimepicker-master\index.html" />
-    <Content Include="Expert\datetimepicker-master\jquery.datetimepicker.css" />
-    <Content Include="Expert\datetimepicker-master\jquery.datetimepicker.js" />
-    <Content Include="Expert\datetimepicker-master\jquery.datetimepicker.min.js" />
-    <Content Include="Expert\datetimepicker-master\jquery.js" />
-    <Content Include="Expert\datetimepicker-master\MIT-LICENSE.txt" />
-    <Content Include="Expert\datetimepicker-master\screen\1.png" />
-    <Content Include="Expert\datetimepicker-master\screen\2.png" />
-    <Content Include="Expert\datetimepicker-master\screen\3.1.png" />
-    <Content Include="Expert\datetimepicker-master\screen\3.png" />
-    <Content Include="Expert\datetimepicker-master\screen\4.png" />
-    <Content Include="Expert\datetimepicker-master\screen\5.png" />
-    <Content Include="Expert\datetimepicker-master\screen\6.png" />
-    <Content Include="Expert\EXPERT_help_v.0.1 gl_wz.htm" />
-    <Content Include="Expert\EXPERT_help_v.0.1 gl_wz_elemei\image001.png" />
-    <Content Include="Expert\EXPERT_help_v.0.1 gl_wz_elemei\image002.png" />
-    <Content Include="Expert\EXPERT_help_v.0.1 gl_wz_elemei\image003.png" />
-    <Content Include="Expert\EXPERT_help_v.0.1 gl_wz_elemei\image004.png" />
-    <Content Include="Expert\EXPERT_help__RPT_v.0.3.htm" />
-    <Content Include="Expert\hu.html" />
-    <Content Include="Expert\P1000.js" />
-    <Content Include="Expert\p1001.js" />
-    <Content Include="Expert\p3001.css" />
-    <Content Include="Expert\P3001.js" />
-    <Content Include="Expert\p3002.js" />
-    <Content Include="Expert\P3003.js" />
-    <Content Include="Expert\P3004.js" />
-    <Content Include="Expert\p3101.js" />
-    <Content Include="Expert\Project_Readme.html" />
-    <Content Include="Expert\Responstable.css" />
-    <Content Include="Expert\Template.js" />
-    <Content Include="Expert\Teszt.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -232,10 +196,7 @@
     <Content Include="Scripts\bootstrap-multiselect-master\post.php" />
     <Content Include="Scripts\bootstrap-multiselect-master\README.md" />
     <Content Include="Scripts\bootstrap-multiselect-master\tests\lib\MIT.LICENSE" />
-    <Content Include="Expert\datetimepicker-master\bower.json" />
-    <Content Include="Expert\datetimepicker-master\datetimepicker.jquery.json" />
-    <Content Include="Expert\datetimepicker-master\package.json" />
-    <Content Include="Expert\datetimepicker-master\README.md" />
+    <None Include="Properties\PublishProfiles\FerkoToDo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ApexScripts\p1.js" />
     <Content Include="Scripts\ApexScripts\P11300.js" />
@@ -446,7 +407,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Expert\Startup.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
