@@ -95,8 +95,17 @@ function selectListChanged(sender) {
         //--         alert(gReturn);
         //$("#TREATM_TYPE_ID").html(gReturn);
         //setInputElementsWidth();
-        alert("selectListChanged:"+ $(sender).val());
+        gReturn = getParamTable( $(sender).val())
+        alert(gReturn);
+        $("#tableContainer").html(gReturn);
     }
+}
+
+function getParamTable(typeId){
+    //--   alert(group + ' '+ selected);
+    var get = new htmldb_Get(null,&APP_ID.,'APPLICATION_PROCESS=GetParamTable',410);
+    get.addParam("x01", typeId);
+    return (get.get());   
 }
 
 function getSelectListIems(group,selected){
